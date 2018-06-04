@@ -15,6 +15,7 @@ the climate and environment.
 This project will visualize the impact of meat and diary production on our climate.
 
 #### Visual sketch
+![Sketch](https://github.com/11096187/programmeerproject/blob/master/doc/Sketch%20all.png)
 
 #### Main features
 
