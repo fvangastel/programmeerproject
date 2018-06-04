@@ -1,7 +1,7 @@
 # programmeerproject
 
-#### Problem statement
+## Problem statement
 
-#### Solution
+## Solution
 
-#### Prerequisites
+## Prerequisites
