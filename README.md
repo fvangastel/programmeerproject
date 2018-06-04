@@ -38,4 +38,6 @@ This project will visualize the impact of meat and diary production on our clima
 - World map: http://bl.ocks.org/micahstubbs/8e15870eb432a21f0bc4d3d527b2d14f
 - Multiline chart: http://bl.ocks.org/asielen/44ffca2877d0132572cb
 - Zoomable sunburst: https://bl.ocks.org/mbostock/4348373
+
 #### Hardest parts of implementing
+- Missing data from certain countries
