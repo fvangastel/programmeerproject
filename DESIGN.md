@@ -3,14 +3,15 @@
 ### Data Sources
 - Total greenhouse gases emissions per country:
 https://data.worldbank.org/indicator/EN.ATM.GHGT.KT.CE
-- Total CO2 emission:
- https://data.worldbank.org/indicator/EN.ATM.CO2E.KT?end=2014&start=1960&view=chart
+- Total CO2 emission: https://data.worldbank.org/indicator/EN.ATM.CO2E.KT?end=2014&start=1960&view=chart
 - CO2 emission per capita:
 https://data.worldbank.org/indicator/EN.ATM.CO2E.PC?view=chart
 - Agricultural methane emissions (% of total):
 https://data.worldbank.org/indicator/EN.ATM.METH.AG.ZS?view=chart
 - Agricultural methane emissions (thousand metric tons of CO2 equivalent):
 https://data.worldbank.org/indicator/EN.ATM.METH.AG.KT.CE?view=chart
+
+All data is available in csv format, so it has to be transformed to a json format to make use of classes and objects.
 
 ### Overview technical components
 ![Sketch.png](https://github.com/11096187/programmeerproject/blob/master/doc/Sketch.png)
