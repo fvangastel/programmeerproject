@@ -17,10 +17,9 @@ This project will visualize the impact of meat and diary production on our clima
 ![Sketch.png](https://github.com/11096187/programmeerproject/blob/master/doc/Sketch.png)
 
 #### Main features
-- A world map with color gradients showing the amount of CO2 emission per country per capita.
-- A multiline chart showing information about for example CO2 and production of meat and crops over the years.
-- A zoomable sunburst showing from on what contents the CO2 emission is based.
-- Without clicking on a country, the multiline chart and sunburst will show information about the world as a whole. Clicking on a specific country, will show the information about this specific country.
+- A world map with color gradients showing the amount of CO2 emission per country. The map will contain **two buttons** with which you can choose to see the total CO2 emission of a country or the CO2 emission per capita. With a **slider** you can change the year of the data. When you **click** on a country on a map, the corresponding data of the country will be shown in the multiline chart and the zoomable sunburst. Without clicking, data about the world as a whole will be shown.
+- A multiline chart shows information about for example CO2 emissions and production of meat and crops over the years.
+- A zoomable sunburst shows from on what contents the CO2 emission is based.
 
 ### Prerequisites
 #### Data sources
