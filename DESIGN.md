@@ -11,7 +11,7 @@ https://data.worldbank.org/indicator/EN.ATM.METH.AG.ZS?view=chart
 - Agricultural methane emissions (thousand metric tons of CO2 equivalent):
 https://data.worldbank.org/indicator/EN.ATM.METH.AG.KT.CE?view=chart
 
-All data is available in csv format, so it has to be transformed to a json format to make use of classes and objects.
+All data is available in csv format, so it has to be transformed to a json format to make use of classes and objects. The data will be split into seperate datafiles, and classified per year or per country.
 
 ### Overview technical components
 ![Sketch.png](https://github.com/11096187/programmeerproject/blob/master/doc/Sketch.png)
