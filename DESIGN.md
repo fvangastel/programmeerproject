@@ -1,15 +1,11 @@
 # Programmeerproject DESIGN
 
 ### Data Sources
-- Total greenhouse gases emissions per country:
-https://data.worldbank.org/indicator/EN.ATM.GHGT.KT.CE
-- Total CO2 emission: https://data.worldbank.org/indicator/EN.ATM.CO2E.KT?end=2014&start=1960&view=chart
-- CO2 emission per capita:
-https://data.worldbank.org/indicator/EN.ATM.CO2E.PC?view=chart
-- Agricultural methane emissions (% of total):
-https://data.worldbank.org/indicator/EN.ATM.METH.AG.ZS?view=chart
-- Agricultural methane emissions (thousand metric tons of CO2 equivalent):
-https://data.worldbank.org/indicator/EN.ATM.METH.AG.KT.CE?view=chart
+- [Total greenhouse gases emissions per country](https://data.worldbank.org/indicator/EN.ATM.GHGT.KT.CE)
+- [Total CO2 emission](https://data.worldbank.org/indicator/EN.ATM.CO2E.KT?end=2014&start=1960&view=chart)
+- [CO2 emission per capita](https://data.worldbank.org/indicator/EN.ATM.CO2E.PC?view=chart)
+- [Agricultural methane emissions (% of total)](https://data.worldbank.org/indicator/EN.ATM.METH.AG.ZS?view=chart)
+- [Agricultural methane emissions (thousand metric tons of CO2 equivalent)](https://data.worldbank.org/indicator/EN.ATM.METH.AG.KT.CE?view=chart)
 
 All data is available in csv format, so it has to be transformed to a json format to make use of classes and objects. The data will be split into seperate datafiles, and classified per year or per country.
 
@@ -22,7 +18,7 @@ All data is available in csv format, so it has to be transformed to a json forma
 - A **sunburst** shows from on what contents the CO2 emission is based. A **hover** will be included, using **D3 tip** to show the corresponding data.
 
 ### External components
-- D3 library: https://d3js.org/d3.v4.min.js
-- topojson: https://d3js.org/topojson.v1.min.js
-- D3 queue: https://d3js.org/queue.v1.min.js
-- D3 tip: https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js
+- [D3 library](https://d3js.org/d3.v4.min.js)
+- [topojson](https://d3js.org/topojson.v1.min.js)
+- [D3 queue](https://d3js.org/queue.v1.min.js)
+- [D3 tip](https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js)

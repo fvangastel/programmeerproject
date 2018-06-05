@@ -23,21 +23,17 @@ This project will visualize the impact of meat and diary production on our clima
 
 ### Prerequisites
 #### Data sources
-- Total greenhouse gases emissions per country:
-https://data.worldbank.org/indicator/EN.ATM.GHGT.KT.CE
-- Total CO2 emission:
- https://data.worldbank.org/indicator/EN.ATM.CO2E.KT?end=2014&start=1960&view=chart
-- CO2 emission per capita:
-https://data.worldbank.org/indicator/EN.ATM.CO2E.PC?view=chart
-- Agricultural methane emissions (% of total):
-https://data.worldbank.org/indicator/EN.ATM.METH.AG.ZS?view=chart
-- Agricultural methane emissions (thousand metric tons of CO2 equivalent):
-https://data.worldbank.org/indicator/EN.ATM.METH.AG.KT.CE?view=chart
+- [Total greenhouse gases emissions per country](https://data.worldbank.org/indicator/EN.ATM.GHGT.KT.CE)
+- [Total CO2 emission](https://data.worldbank.org/indicator/EN.ATM.CO2E.KT?end=2014&start=1960&view=chart)
+- [CO2 emission per capita](https://data.worldbank.org/indicator/EN.ATM.CO2E.PC?view=chart)
+- [Agricultural methane emissions (% of total)](https://data.worldbank.org/indicator/EN.ATM.METH.AG.ZS?view=chart)
+- [Agricultural methane emissions (thousand metric tons of CO2 equivalent)](https://data.worldbank.org/indicator/EN.ATM.METH.AG.KT.CE?view=chart)
 
 #### External components
-- d3
-- d3-tip
-- topojson
+- [D3 library](https://d3js.org/d3.v4.min.js)
+- [topojson](https://d3js.org/topojson.v1.min.js)
+- [D3 queue](https://d3js.org/queue.v1.min.js)
+- [D3 tip](https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js)
 
 #### Review of similar or related visualizations
 - World map: http://bl.ocks.org/micahstubbs/8e15870eb432a21f0bc4d3d527b2d14f
