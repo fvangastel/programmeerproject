@@ -23,15 +23,15 @@ This project will visualize the impact of meat and diary production on our clima
 
 ### Prerequisites
 #### Data sources
-- **Total greenhouse gases emissions per country**:
+- Total greenhouse gases emissions per country:
 https://data.worldbank.org/indicator/EN.ATM.GHGT.KT.CE
-- **Total CO2 emission**:
+- Total CO2 emission:
  https://data.worldbank.org/indicator/EN.ATM.CO2E.KT?end=2014&start=1960&view=chart
-- **CO2 emission per capita**:
+- CO2 emission per capita:
 https://data.worldbank.org/indicator/EN.ATM.CO2E.PC?view=chart
-- **Agricultural methane emissions (% of total)**
+- Agricultural methane emissions (% of total):
 https://data.worldbank.org/indicator/EN.ATM.METH.AG.ZS?view=chart
-- **Agricultural methane emissions (thousand metric tons of CO2 equivalent)**
+- Agricultural methane emissions (thousand metric tons of CO2 equivalent):
 https://data.worldbank.org/indicator/EN.ATM.METH.AG.KT.CE?view=chart
 
 #### External components
