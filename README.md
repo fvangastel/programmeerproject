@@ -1,6 +1,6 @@
 # Programmeerproject
 
-## [What impact has eating meat to our planet?]( https://11096187.github.io/programmeerproject/)
+### [What impact has eating meat to our planet?]( https://11096187.github.io/programmeerproject/)
 #### A project by Felicia van Gastel
 
 A project that visualizes the impact of the meat and dairy production on the climate and environment.
