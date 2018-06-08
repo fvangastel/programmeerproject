@@ -5,6 +5,8 @@
 
 A project that visualizes the impact of the meat and dairy production on the climate and environment.
 
+![picture.jpg](https://github.com/11096187/programmeerproject/blob/master/doc/picture.jpg)
+
 ### Problem statement
 While focussing in the recent years on fossil fuels as a major cause of climate change, we forgotten that our agriculture also has a (very) big influence on our climate. Besides from using the bike more often instead of the car, is there something else we as individuals can do to minimize our impact on the climate? And what changes in our lives will have more impact than others?
 
