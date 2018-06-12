@@ -14,9 +14,20 @@ function makeMap (mapData, comissionData) {
                 width = 960 - margin.left - margin.right,
                 height = 500 - margin.top - margin.bottom;
 
+    // push necessary data into array and clean (possible) initial array
+    var dataArray = [];
+    dataArray.length = 0;
+
+    comissionData.forEach(function(d) {
+        dataArray.push(+d[2014]);
+    });
+
+    console.log(dataArray);
+
     var color = d3.scaleThreshold()
-        .domain([10000,100000,500000,1000000,5000000,10000000,50000000,100000000,500000000,1500000000])
-        .range(["rgb(247,251,255)", "rgb(222,235,247)", "rgb(198,219,239)", "rgb(158,202,225)", "rgb(107,174,214)", "rgb(66,146,198)","rgb(33,113,181)","rgb(8,81,156)","rgb(8,48,107)","rgb(3,19,43)"]);
+        .domain([500, 100000, 250000, 500000, 1000000, 2500000, 5000000,
+          7500000, 10000000])
+        .range(colorbrewer.Reds[9]);
 
     var path = d3.geoPath();
 
@@ -78,19 +89,4 @@ function makeMap (mapData, comissionData) {
               .style("stroke","white")
               .style("stroke-width",0.3);
           });
-    //
-    // svg.append("path")
-    //     .datum(topojson.mesh(mapData.features, function(a, b) { return a.id !== b.id; }))
-    //      // .datum(topojson.mesh(data.features, function(a, b) { return a !== b; }))
-    //     .attr("class", "names")
-    //     .attr("d", path);
-
 }
-
-
-
-//
-// var emissionById = {};
-//
-//   population.forEach(function(d) { populationById[d.id] = +d.population; });
-//   data.features.forEach(function(d) { d.population = populationById[d.id] });
