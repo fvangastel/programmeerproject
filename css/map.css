@@ -29,6 +29,9 @@
 
     }
 
+  text.label {
+      font-size: 12px;
+  }
 /*    text{
       pointer-events:none;
     }*/

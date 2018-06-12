@@ -11,8 +11,8 @@
 function makeMap (mapData, comissionData) {
 
     var margin = {top: 0, right: 0, bottom: 0, left: 0},
-                width = 960 - margin.left - margin.right,
-                height = 500 - margin.top - margin.bottom;
+                width = 1100 - margin.left - margin.right,
+                height = 700 - margin.top - margin.bottom;
 
     // push necessary data into array and clean (possible) initial array
     var dataArray = [];
@@ -25,7 +25,7 @@ function makeMap (mapData, comissionData) {
     console.log(dataArray);
 
     var color = d3.scaleThreshold()
-        .domain([500, 100000, 250000, 500000, 1000000, 2500000, 5000000,
+        .domain([50000, 100000, 250000, 500000, 1000000, 2500000, 5000000,
           7500000, 10000000])
         .range(colorbrewer.Reds[9]);
 
@@ -56,7 +56,7 @@ function makeMap (mapData, comissionData) {
             .offset([-10, 0])
             .html(function(d) {
               console.log(d);
-              return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>CO2 Emission: </strong><span class='details'>" + (d[2014]) +"</span>";
+              return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>CO2 Emission: </strong><span class='details'>" + d3.format(",")(d[2014]) +"</span>";
             })
 
     svg.call(tip);
@@ -70,7 +70,6 @@ function makeMap (mapData, comissionData) {
         .style("fill", function(d) { return color(emissionById[d.id]); })
         .style('stroke', 'white')
         .style('stroke-width', 1.5)
-        .style("opacity",0.8)
         // tooltips
           .style("stroke","white")
           .style('stroke-width', 0.3)
@@ -78,15 +77,40 @@ function makeMap (mapData, comissionData) {
             tip.show(d);
 
             d3.select(this)
-              .style("opacity", 1)
+              .style("opacity", 0.8)
               .style("stroke","white")
               .style("stroke-width",3);
           })
           .on('mouseout', function(d){
             tip.hide(d);
             d3.select(this)
-              .style("opacity", 0.8)
+              .style("opacity", 1.0)
               .style("stroke","white")
               .style("stroke-width",0.3);
           });
-}
+
+    makeLegend ();
+};
+
+function makeLegend () {
+    var threshold = d3.scaleThreshold()
+      .domain([50, 100, 250, 500, 1000, 2500, 5000,
+        7500, 10000])
+      .range(colorbrewer.Reds[9]);
+
+    var svg = d3.select("svg");
+
+    svg.append("g")
+      .attr("class", "legend")
+      .attr("transform", "translate(75,640)");
+
+    var legend = d3.legendColor()
+      .shapeWidth(100)
+      .cells(10)
+      .orient('horizontal')
+      .scale(threshold)
+      .labelFormat(d3.format(","));
+
+    svg.select(".legend")
+      .call(legend);
+};
