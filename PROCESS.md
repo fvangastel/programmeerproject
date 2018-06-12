@@ -6,6 +6,7 @@ Nogsteeds op zoek naar relevante datasets en het in het juiste formaat zien te k
 
 # Dag 3 - 11 juni
 Vanwege mijn verhuizing afgelopen week, loop ik nu een beetje achter. Vandaar dat ik
-deze week extra hard moet gaan werken.
+deze week extra hard moet gaan werken. Helaas is het me vandaag niet gelukt om veel te doen. Morgen poging 2.
 
 # Dag 4 - 12 juni
+Vandaag eindelijk mijn eerste dataset geïmplementeerd en een map aangemaakt. Mijn eerste dataset met de totale aantal CO2 emissies was een csv bestand die ik heb omgezet in een correcte json. Onderweg kwam ik wel een paar probleempjes tegen, zoals de comma's tussen de getallen die omgezet moesten worden tot punten omdat ze anders werden weergegeven als NaN.
