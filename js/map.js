@@ -11,8 +11,8 @@
 function makeMap (mapData, comissionData) {
 
     var margin = {top: 0, right: 0, bottom: 0, left: 0},
-                width = 1100 - margin.left - margin.right,
-                height = 700 - margin.top - margin.bottom;
+                width = 900 - margin.left - margin.right,
+                height = 500 - margin.top - margin.bottom;
 
     // push necessary data into array and clean (possible) initial array
     var dataArray = [];
@@ -31,7 +31,7 @@ function makeMap (mapData, comissionData) {
 
     var path = d3.geoPath();
 
-    var svg = d3.select("body")
+    var svg = d3.select("#map")
                 .append("svg")
                 .attr("width", width)
                 .attr("height", height)
@@ -40,7 +40,7 @@ function makeMap (mapData, comissionData) {
 
     var projection = d3.geoMercator()
                        .scale(130)
-                      .translate( [width / 2, height / 1.5]);
+                       .translate( [width / 2, height / 1.5]);
 
     var path = d3.geoPath().projection(projection);
 
@@ -89,6 +89,28 @@ function makeMap (mapData, comissionData) {
               .style("stroke-width",0.3);
           });
 
+    // put in a slider to slide over the years
+    var slider = d3.sliderHorizontal()
+      .min(1960)
+      .max(2014)
+      .step(1)
+      .width(800)
+      .tickFormat(d3.format(""))
+      .on('onchange', val => {
+        d3.select("p#value2").text(val)
+        console.log(val);
+      });
+
+    var g = d3.select("#sliderMap").append("svg")
+      .attr("width", 1000)
+      .attr("height", 100)
+      .append("g")
+      .attr("transform", "translate(50,30)");
+
+    g.call(slider);
+
+    var data = d3.range(0, 10).map(function (d) { return new Date(1995 + d, 10, 3); });
+
     makeLegend ();
 };
 
@@ -98,19 +120,19 @@ function makeLegend () {
         7500, 10000])
       .range(colorbrewer.Reds[9]);
 
-    var svg = d3.select("svg");
+    var g = d3.select("#legendMap").append("svg")
+      .attr("width", 1000)
+      .attr("height", 100)
+      .append("g")
+      .attr("transform", "translate(30, 30)");
 
-    svg.append("g")
-      .attr("class", "legend")
-      .attr("transform", "translate(75,640)");
 
     var legend = d3.legendColor()
-      .shapeWidth(100)
+      .shapeWidth(90)
       .cells(10)
       .orient('horizontal')
       .scale(threshold)
       .labelFormat(d3.format(","));
 
-    svg.select(".legend")
-      .call(legend);
+    g.call(legend);
 };
