@@ -34,7 +34,7 @@ with open("total-greenhouse-gas-emissions.csv", "r", encoding='utf-8-sig') as cs
 
         values = []
         for year in fieldnames[2:]:
-            values.append({"year": year, "emission": row[year]})
+            values.append({"year": int(year), "emission": int(row[year])})
         data["values"] = values
         list.append(data)
 
