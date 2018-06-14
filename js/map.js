@@ -8,21 +8,16 @@
 * source: http://bl.ocks.org/micahstubbs/8e15870eb432a21f0bc4d3d527b2d14f
 */
 
+var currentYear = 1960;
+var emissionById = {};
+var comissionData
+var mapData
+
 function makeMap (mapData, comissionData) {
 
     var margin = {top: 0, right: 0, bottom: 0, left: 0},
                 width = 900 - margin.left - margin.right,
                 height = 500 - margin.top - margin.bottom;
-
-    // push necessary data into array and clean (possible) initial array
-    var dataArray = [];
-    dataArray.length = 0;
-
-    comissionData.forEach(function(d) {
-        dataArray.push(+d[2014]);
-    });
-
-    console.log(dataArray);
 
     var color = d3.scaleThreshold()
         .domain([50000, 100000, 250000, 500000, 1000000, 2500000, 5000000,
@@ -44,10 +39,8 @@ function makeMap (mapData, comissionData) {
 
     var path = d3.geoPath().projection(projection);
 
-    var emissionById = {};
-
-    comissionData.forEach(function(d) {emissionById[d.id] = +d[2014]; });
-    mapData.features.forEach(function(d) { d[2014] = emissionById[d.id] });
+    comissionData.forEach(function(d) {emissionById[d.id] = +d[1960]; });
+    mapData.features.forEach(function(d) { d[1960] = emissionById[d.id] });
 
     console.log(emissionById);
 
@@ -56,7 +49,7 @@ function makeMap (mapData, comissionData) {
             .offset([-10, 0])
             .html(function(d) {
               console.log(d);
-              return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>CO2 Emission: </strong><span class='details'>" + d3.format(",")(d[2014]) +"</span>";
+              return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>CO2 Emission: </strong><span class='details'>" + d3.format(",")(d[1960]) +"</span>";
             })
 
     svg.call(tip);
@@ -76,19 +69,24 @@ function makeMap (mapData, comissionData) {
           .on('mouseover',function(d){
             tip.show(d);
 
-            d3.select(this)
-              .style("opacity", 0.8)
-              .style("stroke","white")
-              .style("stroke-width",3);
-          })
-          .on('mouseout', function(d){
-            tip.hide(d);
-            d3.select(this)
-              .style("opacity", 1.0)
-              .style("stroke","white")
-              .style("stroke-width",0.3);
-          });
+    d3.select(this)
+      .style("opacity", 0.8)
+      .style("stroke","white")
+      .style("stroke-width",3);
+  })
+      .on('mouseout', function(d){
+        tip.hide(d);
+        d3.select(this)
+          .style("opacity", 1.0)
+          .style("stroke","white")
+          .style("stroke-width",0.3);
+      });
 
+    makeSlider();
+    makeLegend();
+};
+
+function makeSlider () {
     // put in a slider to slide over the years
     var slider = d3.sliderHorizontal()
       .min(1960)
@@ -97,22 +95,19 @@ function makeMap (mapData, comissionData) {
       .width(800)
       .tickFormat(d3.format(""))
       .on('onchange', val => {
-        d3.select("p#value2").text(val)
-        console.log(val);
+        currentYear = val;
+        document.getElementById("title").innerHTML = "CO2 emissions for the year " + String(val);
+        updateMap(currentYear);
       });
 
     var g = d3.select("#sliderMap").append("svg")
       .attr("width", 1000)
-      .attr("height", 100)
+      .attr("height", 75)
       .append("g")
-      .attr("transform", "translate(50,30)");
+      .attr("transform", "translate(50,20)");
 
     g.call(slider);
-
-    var data = d3.range(0, 10).map(function (d) { return new Date(1995 + d, 10, 3); });
-
-    makeLegend ();
-};
+}
 
 function makeLegend () {
     var threshold = d3.scaleThreshold()
@@ -122,10 +117,9 @@ function makeLegend () {
 
     var g = d3.select("#legendMap").append("svg")
       .attr("width", 1000)
-      .attr("height", 100)
+      .attr("height", 50)
       .append("g")
-      .attr("transform", "translate(30, 30)");
-
+      .attr("transform", "translate(30, 0)");
 
     var legend = d3.legendColor()
       .shapeWidth(90)
@@ -135,4 +129,12 @@ function makeLegend () {
       .labelFormat(d3.format(","));
 
     g.call(legend);
+};
+
+function updateMap(currentYear, comissionData, mapData) {
+
+    var map = d3.select("#map")
+    console.log(comissionData);
+    comissionData.forEach(function(d) {emissionById[d.id] = +d[currentYear]; });
+    mapData.features.forEach(function(d) { d[currentYear] = emissionById[d.id] });
 };

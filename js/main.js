@@ -8,7 +8,8 @@
 **/
 
 // set up global variables
-var totalCO2;
+var mapData;
+var comissionData;
 
 // load the 3 json files
 window.onload = function() {
@@ -25,7 +26,7 @@ function getData(error, data) {
     // storing the data with data 2006 as initial data
     mapData = data[0];
     comissionData = data[1];
-    
+
     console.log(mapData);
     console.log(comissionData);
 

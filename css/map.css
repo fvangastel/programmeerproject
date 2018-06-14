@@ -39,3 +39,8 @@
     .details{
       color:white;
     }
+
+h1 {
+    padding-left: 30px;
+    font-family: 'Ubuntu', sans-serif;
+}
