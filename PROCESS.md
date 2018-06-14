@@ -13,3 +13,5 @@ Vandaag eindelijk mijn eerste dataset geïmplementeerd en een map aangemaakt. Mi
 
 # Dag 5 - woensdag 13 juni
 Vandaag heb ik een slider aan mijn map toegevoegd, een titel die meeverandert met de slider en een update functie gemaakt die mijn dataset koppelt aan de slider. Voor nu is de map dus klaar. Mijn doel van morgen is om een tweede visualisatie te maken en deze aan de map te koppelen.
+
+# Dag 6 - donderdag 14 juni

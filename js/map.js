@@ -8,23 +8,45 @@
 * source: http://bl.ocks.org/micahstubbs/8e15870eb432a21f0bc4d3d527b2d14f
 */
 
-var currentYear = 1960;
-var emissionById = {};
-var comissionData
-var mapData
+var totalYears = 43;
 
-function makeMap (mapData, comissionData) {
+var margin = {top: 0, right: 0, bottom: 0, left: 0},
+            width = 900 - margin.left - margin.right,
+            height = 500 - margin.top - margin.bottom;
 
-    var margin = {top: 0, right: 0, bottom: 0, left: 0},
-                width = 900 - margin.left - margin.right,
-                height = 500 - margin.top - margin.bottom;
+var color = d3.scaleThreshold()
+    .domain([50000, 100000, 250000, 500000, 1000000, 2500000, 5000000,
+      7500000, 10000000])
+    .range(colorbrewer.Reds[9]);
 
-    var color = d3.scaleThreshold()
-        .domain([50000, 100000, 250000, 500000, 1000000, 2500000, 5000000,
-          7500000, 10000000])
-        .range(colorbrewer.Reds[9]);
+var projection = d3.geoMercator()
+                   .scale(130)
+                   .translate( [width / 2, height / 1.5]);
 
-    var path = d3.geoPath();
+var path = d3.geoPath().projection(projection);
+
+function makeMap (currentYear, mapData, emissionData) {
+
+    // iterate over the data file and separate into name and population value
+    for (var i = 0; i < emissionData.length; i++) {
+        for (var j = 0; j < totalYears; j++) {
+
+            var dataID = emissionData[i].id;
+            var emission = emissionData[i].values[j].emission;
+            var year = emissionData[i].values[j].year;
+
+            // iteratue over the world data file and store country name in variable
+            for (var k = 0; k < mapData.features.length; k++) {
+                var mapID = mapData.features[k].id;
+
+                // link the emission data if country names in the two files match
+                if (dataID == mapID && year == currentYear) {
+                    mapData.features[k].properties.value = emission;
+                    break;
+                }
+            }
+        }
+    }
 
     var svg = d3.select("#map")
                 .append("svg")
@@ -33,23 +55,14 @@ function makeMap (mapData, comissionData) {
                 .append('g')
                 .attr('class', 'map');
 
-    var projection = d3.geoMercator()
-                       .scale(130)
-                       .translate( [width / 2, height / 1.5]);
-
-    var path = d3.geoPath().projection(projection);
-
-    comissionData.forEach(function(d) {emissionById[d.id] = +d[1960]; });
-    mapData.features.forEach(function(d) { d[1960] = emissionById[d.id] });
-
-    console.log(emissionById);
+    // mapData.features.forEach(function(d) { d.values = currentYearEmission;});
 
     var tip = d3.tip()
             .attr('class', 'd3-tip')
             .offset([-10, 0])
             .html(function(d) {
               console.log(d);
-              return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>CO2 Emission: </strong><span class='details'>" + d3.format(",")(d[1960]) +"</span>";
+              return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>Emission: </strong><span class='details'>" + d3.format(",")(d.properties.value) +"</span>";
             })
 
     svg.call(tip);
@@ -60,7 +73,15 @@ function makeMap (mapData, comissionData) {
         .data(mapData.features)
       .enter().append("path")
         .attr("d", path)
-        .style("fill", function(d) { return color(emissionById[d.id]); })
+        .style("fill", function(d) {
+          if (d.properties.value != 0) {
+              return color(d.properties.value);
+          }
+          else {
+              // something wrong with data
+              return 'lightgray'
+          }
+        })
         .style('stroke', 'white')
         .style('stroke-width', 1.5)
         // tooltips
@@ -89,15 +110,15 @@ function makeMap (mapData, comissionData) {
 function makeSlider () {
     // put in a slider to slide over the years
     var slider = d3.sliderHorizontal()
-      .min(1960)
-      .max(2014)
+      .min(1990)
+      .max(2012)
       .step(1)
       .width(800)
       .tickFormat(d3.format(""))
       .on('onchange', val => {
         currentYear = val;
-        document.getElementById("title").innerHTML = "CO2 emissions for the year " + String(val);
-        updateMap(currentYear);
+        document.getElementById("title").innerHTML = "Greenhouse gas emissions for the year " + String(val);
+        updateMap(currentYear, mapData, emissionData);
       });
 
     var g = d3.select("#sliderMap").append("svg")
@@ -107,6 +128,8 @@ function makeSlider () {
       .attr("transform", "translate(50,20)");
 
     g.call(slider);
+
+    console.log(emissionData);
 }
 
 function makeLegend () {
@@ -131,10 +154,41 @@ function makeLegend () {
     g.call(legend);
 };
 
-function updateMap(currentYear, comissionData, mapData) {
+function updateMap(currentYear) {
 
-    var map = d3.select("#map")
-    console.log(comissionData);
-    comissionData.forEach(function(d) {emissionById[d.id] = +d[currentYear]; });
-    mapData.features.forEach(function(d) { d[currentYear] = emissionById[d.id] });
+    // iterate over the data file and separate into name and population value
+    for (var i = 0; i < emissionData.length; i++) {
+        for (var j = 0; j < totalYears; j++) {
+
+            var dataID = emissionData[i].id;
+            var emission = emissionData[i].values[j].emission;
+            var year = emissionData[i].values[j].year;
+
+            // iteratue over the world data file and store country name in variable
+            for (var k = 0; k < mapData.features.length; k++) {
+                var mapID = mapData.features[k].id;
+
+                // link the emission data if country names in the two files match
+                if (dataID == mapID && year == currentYear) {
+                    mapData.features[k].properties.value = emission;
+                    break;
+                }
+            }
+        }
+    }
+
+    var countries = d3.select("#map").select(".countries").selectAll("path")
+        .selectAll("path")
+        .attr("fill", function(d){
+            console.log(d.properties.value);
+            if (d.properties.value != 0) {
+                return color(d.properties.value);
+            }
+
+            else {
+                // no data
+                return 'lightgray'
+            }
+    });
+
 };

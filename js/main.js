@@ -9,13 +9,14 @@
 
 // set up global variables
 var mapData;
-var comissionData;
+var emissionData;
+var currentYear = 1990;
 
 // load the 3 json files
 window.onload = function() {
     d3.queue()
         .defer(d3.json, "data/world_countries.json")
-        .defer(d3.json, "data/totalCO2emissions.json")
+        .defer(d3.json, "data/total-greenhouse-gas-emissions.json")
         .awaitAll(function(error, data){getData(error, data)});
 };
 
@@ -25,11 +26,8 @@ function getData(error, data) {
 
     // storing the data with data 2006 as initial data
     mapData = data[0];
-    comissionData = data[1];
-
-    console.log(mapData);
-    console.log(comissionData);
+    emissionData = data[1];
 
     // call other visualization functions
-    makeMap(mapData, comissionData);
+    makeMap(currentYear, mapData, emissionData);
 };
