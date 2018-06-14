@@ -177,18 +177,20 @@ function updateMap(currentYear) {
         }
     }
 
-    var countries = d3.select("#map").select(".countries").selectAll("path")
+    var countries = d3.select("#map")
+        .select("svg")
+        .select(".map")
+        .select(".countries")
         .selectAll("path")
-        .attr("fill", function(d){
-            console.log(d.properties.value);
-            if (d.properties.value != 0) {
-                return color(d.properties.value);
-            }
+          .attr("fill", function(d){
+              if (d.properties.value != 0) {
+                  return color(d.properties.value);
+              }
 
-            else {
-                // no data
-                return 'lightgray'
-            }
-    });
+              else {
+                  // no data
+                  return 'lightgray'
+              }
+          });
 
 };
