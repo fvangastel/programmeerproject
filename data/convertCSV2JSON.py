@@ -12,8 +12,8 @@ import csv
 import json
 from collections import OrderedDict
 
-csvfile = open("totalCO2emissions.csv", "r", encoding='utf-8-sig')
-jsonfile = open("totalCO2emissions.json", "w")
+csvfile = open("total-greenhouse-gas-emissions.csv", "r", encoding='utf-8-sig')
+jsonfile = open("total-greenhouse-gas-emissions.json", "w")
 
 fieldnames = ("name", "id", "1960", "1961", "1962", "1963", "1964",
     "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974",
@@ -27,8 +27,13 @@ list = []
 
 for row in reader:
     data = OrderedDict()
-    for element in fieldnames:
-        data[element] = row[element]
+    data["name"] = row["name"]
+    data["id"] = row["id"]
+
+    values = []
+    for year in fieldnames[2:]:
+        values.append({"year": year, "emission": row[year]})
+    data["values"] = values
     list.append(data)
 
 json.dump(list, jsonfile, indent=4)
