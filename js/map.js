@@ -118,7 +118,7 @@ function makeSlider () {
       .on('onchange', val => {
         currentYear = val;
         document.getElementById("title").innerHTML = "Greenhouse gas emissions for the year " + String(val);
-        updateMap(currentYear, mapData, emissionData);
+        updateMap(currentYear);
       });
 
     var g = d3.select("#sliderMap").append("svg")
@@ -128,8 +128,6 @@ function makeSlider () {
       .attr("transform", "translate(50,20)");
 
     g.call(slider);
-
-    console.log(emissionData);
 }
 
 function makeLegend () {
@@ -181,6 +179,7 @@ function updateMap(currentYear) {
         .select("svg")
         .select(".map")
         .select(".countries")
+          .data(mapData.features)
         .selectAll("path")
           .attr("fill", function(d){
               if (d.properties.value != 0) {
