@@ -15,4 +15,10 @@ Vandaag eindelijk mijn eerste dataset geïmplementeerd en een map aangemaakt. Mi
 Vandaag heb ik een slider aan mijn map toegevoegd, een titel die meeverandert met de slider en een update functie gemaakt die mijn dataset koppelt aan de slider. Voor nu is de map dus klaar. Mijn doel van morgen is om een tweede visualisatie te maken en deze aan de map te koppelen.
 
 # Dag 6 - donderdag 14 juni
-Hele dag weer bezig geweest met de map visualisatie. Eerst heb ik de data veranderd van CO2 naar total greenhouse gasses, wat betekende een andere dataset. Daarnaast heb ik de CSV2JSON converter zodanig aangepast, dat de JSON data nu ook nested is. Hier zou ik evt beter mee kunnen werken. Daarnaast heb ik nu ook de dataset van greenhouse gas emissions per sector, voor de sunburst die ik wil gaan maken. Op dit moment loop ik vast met de update functie van mijn map, waarbij de data wel goed wordt vernieuwd, maar de kleuren van de map zich niet aanpassen. Morgen zal ik hier even naar moeten kijken, en hopelijk dat ik dan ook kan gaan beginnen met de sunburst.
+Hele dag weer bezig geweest met de map visualisatie. Eerst heb ik de data veranderd van CO2 naar totaal aantal broeikasgassen, omdat dit voor mijn onderwerp veel interessanter is. Daarnaast heb ik de CSV2JSON converter zodanig aangepast, dat de JSON data nu ook nested is. Hier zou ik evt beter mee kunnen werken. Daarnaast heb ik nu ook de dataset van greenhouse gas emissions per sector, voor de sunburst die ik wil gaan maken. Op dit moment loop ik vast met de update functie van mijn map, waarbij de data wel goed wordt vernieuwd, maar de kleuren van de map zich niet aanpassen. Morgen zal ik hier even naar moeten kijken, en hopelijk dat ik dan ook kan gaan beginnen met de sunburst.
+
+# Dag 7 - vrijdag 15 juni
+Na de werkgroep heb ik de indeling van mijn github aangepast en alles in de juiste mappen geplaatst. Verder had ik geen energie meer om nog te programmeren.
+
+# Dag 8 - maandag 18 juni
+Het is EINDELIJK gelukt om de kleuren van mijn map aan te passen in de update functie! Nu kan ik eindelijk verder met mijn volgende visualisaties. Als eerst ben ik nog steeds op zoek naar de juiste data, aangezien ik merk dat data van verschillende bronnen ook totaal verschillende data opgeven. Ik probeer twee sets te vinden die het meest overeenkomen met mijn huidige data.

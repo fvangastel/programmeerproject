@@ -42,13 +42,14 @@ function makeMap (currentYear, mapData, emissionData) {
                 // link the emission data if country names in the two files match
                 if (dataID == mapID && year == currentYear) {
                     mapData.features[k].properties.value = emission;
+                    mapData.features[k].properties.color = color(emission);
                     break;
                 }
             }
         }
     }
 
-    var svg = d3.select("#map")
+    var svgmap = d3.select("#map")
                 .append("svg")
                 .attr("width", width)
                 .attr("height", height)
@@ -62,26 +63,40 @@ function makeMap (currentYear, mapData, emissionData) {
             .offset([-10, 0])
             .html(function(d) {
               console.log(d);
-              return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>Emission: </strong><span class='details'>" + d3.format(",")(d.properties.value) +"</span>";
+              if (d.properties.value == 0 || NaN) {
+                  return "<strong>Country: </strong><span class='details'>" +
+                      d.properties.name + "<br></span>" +
+                      "<strong>Emission: </strong><span class='details'>" +
+                      "No data" +"</span>";
+              }
+              else {
+                  return "<strong>Country: </strong><span class='details'>" +
+                      d.properties.name + "<br></span>" +
+                      "<strong>Emission: </strong><span class='details'>" +
+                      d3.format(",")(d.properties.value) +"</span>";
+              }
+
             })
 
-    svg.call(tip);
+    svgmap.call(tip);
 
-    svg.append("g")
+    svgmap.append("g")
         .attr("class", "countries")
       .selectAll("path")
         .data(mapData.features)
       .enter().append("path")
         .attr("d", path)
-        .style("fill", function(d) {
-          if (d.properties.value != 0) {
-              return color(d.properties.value);
-          }
-          else {
-              // something wrong with data
-              return 'lightgray'
-          }
-        })
+        .attr("id", function(d){
+            console.log(d.id)
+            return d.id})
+        .style("fill", function(d){
+            if (d.properties.value == 0 || NaN) {
+                return "lightgray";
+            }
+            else {
+                return color(d.properties.value);
+            }
+          })
         .style('stroke', 'white')
         .style('stroke-width', 1.5)
         // tooltips
@@ -105,6 +120,7 @@ function makeMap (currentYear, mapData, emissionData) {
 
     makeSlider();
     makeLegend();
+
 };
 
 function makeSlider () {
@@ -154,42 +170,89 @@ function makeLegend () {
 
 function updateMap(currentYear) {
 
-    // iterate over the data file and separate into name and population value
+    // iterate over the emission data per country and per year
     for (var i = 0; i < emissionData.length; i++) {
         for (var j = 0; j < totalYears; j++) {
 
+            // seperate the data of country in id, emission and year
             var dataID = emissionData[i].id;
             var emission = emissionData[i].values[j].emission;
             var year = emissionData[i].values[j].year;
 
-            // iteratue over the world data file and store country name in variable
+            // iteratue over the map data file and store country id in variable
             for (var k = 0; k < mapData.features.length; k++) {
                 var mapID = mapData.features[k].id;
 
-                // link the emission data if country names in the two files match
+                // link the emission data if country id's in the two files match
                 if (dataID == mapID && year == currentYear) {
                     mapData.features[k].properties.value = emission;
+
+                    d3.select("#" + mapID)
+                        .style("fill", function(){
+                            if (emission == 0 || NaN) {
+                                return 'lightgray';
+                            }
+                            else {
+                                console.log(color(emission));
+                                console.log(emission);
+                                return color(emission);
+                                // return "black";
+                            }
+                        })
+
                     break;
                 }
+
             }
+
+          }
+
         }
-    }
 
-    var countries = d3.select("#map")
-        .select("svg")
-        .select(".map")
-        .select(".countries")
-          .data(mapData.features)
-        .selectAll("path")
-          .attr("fill", function(d){
-              if (d.properties.value != 0) {
-                  return color(d.properties.value);
-              }
+        //TO DO: UPDATE COLOR!!
 
-              else {
-                  // no data
-                  return 'lightgray'
-              }
-          });
+        // console.log(d3.select(mapID))
+        console.log(mapID)
+
+        d3.select("#" + mapID)
+            .style("fill", function(){
+                if (emission == 0 || NaN) {
+                    return 'lightgray';
+                }
+                else {
+                    console.log(color(emission));
+                    console.log(emission);
+                    return color(emission);
+                    // return "black";
+                }
+            })
+
+        // d3.select(mapID)
+        //     .style("fill", function(){
+        //         if (emission == 0 || NaN) {
+        //             return 'lightgray';
+        //         }
+        //         else {
+        //             // return color(emission);
+        //             return "black";
+        //         }
+        //     })
+
+        // var path = d3.select("#map").select("svg").select(".map").select(".countries").selectAll("path")
+        //     .style("fill", function(){
+        //         if (emission == 0 || NaN) {
+        //             return 'lightgray';
+        //         }
+        //         else {
+        //             // return color(emission);
+        //             return "black";
+        //         }
+        //     })
+
+        // console.log(path);
+
+
+
+
 
 };

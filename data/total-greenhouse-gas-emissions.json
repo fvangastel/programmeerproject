@@ -37736,6 +37736,184 @@
         ]
     },
     {
+        "name": "Somaliland",
+        "id": "SML",
+        "values": [
+            {
+                "year": 1970,
+                "emission": 0
+            },
+            {
+                "year": 1971,
+                "emission": 0
+            },
+            {
+                "year": 1972,
+                "emission": 0
+            },
+            {
+                "year": 1973,
+                "emission": 0
+            },
+            {
+                "year": 1974,
+                "emission": 0
+            },
+            {
+                "year": 1975,
+                "emission": 0
+            },
+            {
+                "year": 1976,
+                "emission": 0
+            },
+            {
+                "year": 1977,
+                "emission": 0
+            },
+            {
+                "year": 1978,
+                "emission": 0
+            },
+            {
+                "year": 1979,
+                "emission": 0
+            },
+            {
+                "year": 1980,
+                "emission": 0
+            },
+            {
+                "year": 1981,
+                "emission": 0
+            },
+            {
+                "year": 1982,
+                "emission": 0
+            },
+            {
+                "year": 1983,
+                "emission": 0
+            },
+            {
+                "year": 1984,
+                "emission": 0
+            },
+            {
+                "year": 1985,
+                "emission": 0
+            },
+            {
+                "year": 1986,
+                "emission": 0
+            },
+            {
+                "year": 1987,
+                "emission": 0
+            },
+            {
+                "year": 1988,
+                "emission": 0
+            },
+            {
+                "year": 1989,
+                "emission": 0
+            },
+            {
+                "year": 1990,
+                "emission": 0
+            },
+            {
+                "year": 1991,
+                "emission": 0
+            },
+            {
+                "year": 1992,
+                "emission": 0
+            },
+            {
+                "year": 1993,
+                "emission": 0
+            },
+            {
+                "year": 1994,
+                "emission": 0
+            },
+            {
+                "year": 1995,
+                "emission": 0
+            },
+            {
+                "year": 1996,
+                "emission": 0
+            },
+            {
+                "year": 1997,
+                "emission": 0
+            },
+            {
+                "year": 1998,
+                "emission": 0
+            },
+            {
+                "year": 1999,
+                "emission": 0
+            },
+            {
+                "year": 2000,
+                "emission": 0
+            },
+            {
+                "year": 2001,
+                "emission": 0
+            },
+            {
+                "year": 2002,
+                "emission": 0
+            },
+            {
+                "year": 2003,
+                "emission": 0
+            },
+            {
+                "year": 2004,
+                "emission": 0
+            },
+            {
+                "year": 2005,
+                "emission": 0
+            },
+            {
+                "year": 2006,
+                "emission": 0
+            },
+            {
+                "year": 2007,
+                "emission": 0
+            },
+            {
+                "year": 2008,
+                "emission": 0
+            },
+            {
+                "year": 2009,
+                "emission": 0
+            },
+            {
+                "year": 2010,
+                "emission": 0
+            },
+            {
+                "year": 2011,
+                "emission": 0
+            },
+            {
+                "year": 2012,
+                "emission": 0
+            }
+        ]
+    },
+    {
         "name": "Serbia",
         "id": "SRB",
         "values": [
@@ -38093,7 +38271,7 @@
     },
     {
         "name": "South Sudan",
-        "id": "SSD",
+        "id": "SDS",
         "values": [
             {
                 "year": 1970,
@@ -45742,6 +45920,184 @@
             {
                 "year": 2012,
                 "emission": 446
+            }
+        ]
+    },
+    {
+        "name": "Western Sahara",
+        "id": "WSS",
+        "values": [
+            {
+                "year": 1970,
+                "emission": 0
+            },
+            {
+                "year": 1971,
+                "emission": 0
+            },
+            {
+                "year": 1972,
+                "emission": 0
+            },
+            {
+                "year": 1973,
+                "emission": 0
+            },
+            {
+                "year": 1974,
+                "emission": 0
+            },
+            {
+                "year": 1975,
+                "emission": 0
+            },
+            {
+                "year": 1976,
+                "emission": 0
+            },
+            {
+                "year": 1977,
+                "emission": 0
+            },
+            {
+                "year": 1978,
+                "emission": 0
+            },
+            {
+                "year": 1979,
+                "emission": 0
+            },
+            {
+                "year": 1980,
+                "emission": 0
+            },
+            {
+                "year": 1981,
+                "emission": 0
+            },
+            {
+                "year": 1982,
+                "emission": 0
+            },
+            {
+                "year": 1983,
+                "emission": 0
+            },
+            {
+                "year": 1984,
+                "emission": 0
+            },
+            {
+                "year": 1985,
+                "emission": 0
+            },
+            {
+                "year": 1986,
+                "emission": 0
+            },
+            {
+                "year": 1987,
+                "emission": 0
+            },
+            {
+                "year": 1988,
+                "emission": 0
+            },
+            {
+                "year": 1989,
+                "emission": 0
+            },
+            {
+                "year": 1990,
+                "emission": 0
+            },
+            {
+                "year": 1991,
+                "emission": 0
+            },
+            {
+                "year": 1992,
+                "emission": 0
+            },
+            {
+                "year": 1993,
+                "emission": 0
+            },
+            {
+                "year": 1994,
+                "emission": 0
+            },
+            {
+                "year": 1995,
+                "emission": 0
+            },
+            {
+                "year": 1996,
+                "emission": 0
+            },
+            {
+                "year": 1997,
+                "emission": 0
+            },
+            {
+                "year": 1998,
+                "emission": 0
+            },
+            {
+                "year": 1999,
+                "emission": 0
+            },
+            {
+                "year": 2000,
+                "emission": 0
+            },
+            {
+                "year": 2001,
+                "emission": 0
+            },
+            {
+                "year": 2002,
+                "emission": 0
+            },
+            {
+                "year": 2003,
+                "emission": 0
+            },
+            {
+                "year": 2004,
+                "emission": 0
+            },
+            {
+                "year": 2005,
+                "emission": 0
+            },
+            {
+                "year": 2006,
+                "emission": 0
+            },
+            {
+                "year": 2007,
+                "emission": 0
+            },
+            {
+                "year": 2008,
+                "emission": 0
+            },
+            {
+                "year": 2009,
+                "emission": 0
+            },
+            {
+                "year": 2010,
+                "emission": 0
+            },
+            {
+                "year": 2011,
+                "emission": 0
+            },
+            {
+                "year": 2012,
+                "emission": 0
             }
         ]
     },
