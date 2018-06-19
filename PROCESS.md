@@ -22,3 +22,5 @@ Na de werkgroep heb ik de indeling van mijn github aangepast en alles in de juis
 
 # Dag 8 - maandag 18 juni
 Het is EINDELIJK gelukt om de kleuren van mijn map aan te passen in de update functie! Nu kan ik eindelijk verder met mijn volgende visualisaties. Als eerst ben ik nog steeds op zoek naar de juiste data, aangezien ik merk dat data van verschillende bronnen ook totaal verschillende data opgeven. Ik probeer twee sets te vinden die het meest overeenkomen met mijn huidige data.
+
+# Dag 9 - dinsdag 19 juni
