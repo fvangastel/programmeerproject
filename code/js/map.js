@@ -8,11 +8,15 @@
 * source: http://bl.ocks.org/micahstubbs/8e15870eb432a21f0bc4d3d527b2d14f
 */
 
-var totalYears = 43;
+// TO DO:
+// NIEUWE DATA ERIN ZETTEN
 
-var margin = {top: 0, right: 0, bottom: 0, left: 0},
-            width = 900 - margin.left - margin.right,
-            height = 500 - margin.top - margin.bottom;
+var totalYears = 43;
+var currentID = "WLD";
+var currentCountry = "World";
+
+var widthMap = 900
+var heightMap = 500
 
 var color = d3.scaleThreshold()
     .domain([50000, 100000, 250000, 500000, 1000000, 2500000, 5000000,
@@ -21,7 +25,7 @@ var color = d3.scaleThreshold()
 
 var projection = d3.geoMercator()
                    .scale(130)
-                   .translate( [width / 2, height / 1.5]);
+                   .translate( [widthMap / 2, heightMap / 1.5]);
 
 var path = d3.geoPath().projection(projection);
 
@@ -49,20 +53,17 @@ function makeMap (currentYear, mapData, emissionData) {
         }
     }
 
-    var svgmap = d3.select("#map")
+    var svgMap = d3.select("#map")
                 .append("svg")
-                .attr("width", width)
-                .attr("height", height)
+                .attr("width", widthMap)
+                .attr("height", heightMap)
                 .append('g')
                 .attr('class', 'map');
-
-    // mapData.features.forEach(function(d) { d.values = currentYearEmission;});
 
     var tip = d3.tip()
             .attr('class', 'd3-tip')
             .offset([-10, 0])
             .html(function(d) {
-              console.log(d);
               if (d.properties.value == 0 || NaN) {
                   return "<strong>Country: </strong><span class='details'>" +
                       d.properties.name + "<br></span>" +
@@ -78,16 +79,15 @@ function makeMap (currentYear, mapData, emissionData) {
 
             })
 
-    svgmap.call(tip);
+    svgMap.call(tip);
 
-    svgmap.append("g")
+    svgMap.append("g")
         .attr("class", "countries")
       .selectAll("path")
         .data(mapData.features)
       .enter().append("path")
         .attr("d", path)
         .attr("id", function(d){
-            console.log(d.id)
             return d.id})
         .style("fill", function(d){
             if (d.properties.value == 0 || NaN) {
@@ -116,6 +116,14 @@ function makeMap (currentYear, mapData, emissionData) {
           .style("opacity", 1.0)
           .style("stroke","white")
           .style("stroke-width",0.3);
+      })
+      .on('click', function(d){
+        currentID = d.id;
+        console.log(d);
+        currentCountry = d.properties.name;
+        console.log(currentCountry);
+        updateBar(barData, currentYear, currentID)
+        document.getElementById("titleBar").innerHTML = "Emissions per gas in " + currentCountry + ", " + currentYear + " (MtCO2e)";
       });
 
     makeSlider();
@@ -124,6 +132,7 @@ function makeMap (currentYear, mapData, emissionData) {
 };
 
 function makeSlider () {
+
     // put in a slider to slide over the years
     var slider = d3.sliderHorizontal()
       .min(1990)
@@ -133,8 +142,10 @@ function makeSlider () {
       .tickFormat(d3.format(""))
       .on('onchange', val => {
         currentYear = val;
-        document.getElementById("title").innerHTML = "Greenhouse gas emissions for the year " + String(val);
+        document.getElementById("titleMap").innerHTML = "Annual greenhouse gas emissions per country (MtCO2e), " + String(val);
+        document.getElementById("titleBar").innerHTML = "Emissions per gas in " + currentCountry + ", " + String(val) + " (MtCO2e)";
         updateMap(currentYear);
+        updateBar(barData, currentYear, currentID);
       });
 
     var g = d3.select("#sliderMap").append("svg")
@@ -168,7 +179,7 @@ function makeLegend () {
     g.call(legend);
 };
 
-function updateMap(currentYear) {
+function updateMap(currentYear, barData) {
 
     // iterate over the emission data per country and per year
     for (var i = 0; i < emissionData.length; i++) {
@@ -193,10 +204,7 @@ function updateMap(currentYear) {
                                 return 'lightgray';
                             }
                             else {
-                                console.log(color(emission));
-                                console.log(emission);
                                 return color(emission);
-                                // return "black";
                             }
                         })
 
@@ -209,50 +217,14 @@ function updateMap(currentYear) {
 
         }
 
-        //TO DO: UPDATE COLOR!!
-
-        // console.log(d3.select(mapID))
-        console.log(mapID)
-
+        // update map colors
         d3.select("#" + mapID)
             .style("fill", function(){
                 if (emission == 0 || NaN) {
                     return 'lightgray';
                 }
                 else {
-                    console.log(color(emission));
-                    console.log(emission);
                     return color(emission);
-                    // return "black";
                 }
             })
-
-        // d3.select(mapID)
-        //     .style("fill", function(){
-        //         if (emission == 0 || NaN) {
-        //             return 'lightgray';
-        //         }
-        //         else {
-        //             // return color(emission);
-        //             return "black";
-        //         }
-        //     })
-
-        // var path = d3.select("#map").select("svg").select(".map").select(".countries").selectAll("path")
-        //     .style("fill", function(){
-        //         if (emission == 0 || NaN) {
-        //             return 'lightgray';
-        //         }
-        //         else {
-        //             // return color(emission);
-        //             return "black";
-        //         }
-        //     })
-
-        // console.log(path);
-
-
-
-
-
 };

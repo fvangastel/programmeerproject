@@ -12,12 +12,12 @@ import csv
 import json
 from collections import OrderedDict
 
-with open("ghg-emissions-gas.csv", "r", encoding='utf-8-sig') as csvfile:
+with open("newData/emissions-by-gas.csv", "r", encoding='utf-8-sig') as csvfile:
 
-    jsonfile = open("ghg-emissions-gas.json", "w")
+    jsonfile = open("newData/emissions-by-gas.json", "w")
 
     # the names of the columns in the csv
-    fieldnames = ("country", "id", "year", "F-GAS", "N2O", "CH4", "CO2")
+    fieldnames = ("country", "id", "year", "CO2", "CH4", "N2O", "F-GAS")
 
     # divide the objects by ";"
     reader = csv.DictReader(csvfile, fieldnames, delimiter=";")
@@ -25,7 +25,7 @@ with open("ghg-emissions-gas.csv", "r", encoding='utf-8-sig') as csvfile:
     # skip the first line
     next(reader)
 
-    # make a list of the json file
+    # make a dictionary of the json file
     dict = {}
 
     for row in reader:
@@ -38,10 +38,10 @@ with open("ghg-emissions-gas.csv", "r", encoding='utf-8-sig') as csvfile:
 
         dict[year][countryID] = {
             "country": row["country"],
-            "F-GAS": row["F-GAS"],
-            "N2O": row["N2O"],
+            "CO2": row["CO2"],
             "CH4": row["CH4"],
-            "CO2": row["CO2"]
+            "N2O": row["N2O"],
+            "F-GAS": row["F-GAS"]
         }
 
     json.dump(dict, jsonfile, indent=4)
