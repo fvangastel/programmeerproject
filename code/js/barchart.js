@@ -36,13 +36,24 @@ function makeBar (barData) {
     array = [];
 
     for (i = 1; i < keys.length; i++){
-        array.push({"name": keys[i], "comission": Number((barData[1990].WLD[keys[i]]).replace(",", "."))})
+        array.push({"name": keys[i], "emission": Number((barData[1990].WLD[keys[i]]).replace(",", "."))})
     };
 
 
     // Scale the range of the data in the domains
     x.domain(array.map(function(d) { return d.name; }));
-    y.domain([0, d3.max(array, function(d) { return d.comission; })]);
+    y.domain([0, d3.max(array, function(d) { return d.emission; })]);
+
+    // initialize tip to create interactivity of bars
+    var tip = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+          return d3.format(".2%")(d.emission/d3.sum(array.map(function(v){ return v.emission; })));
+      });
+
+    // Call tip
+    svgBar.call(tip);
 
     // append the rectangles for the bar chart
     svgBar.selectAll(".bar")
@@ -51,8 +62,10 @@ function makeBar (barData) {
         .attr("class", "bar")
         .attr("x", function(d) { return x(d.name); })
         .attr("width", x.bandwidth())
-        .attr("y", function(d) { return y(d.comission); })
-        .attr("height", function(d) { return heightBar - y(d.comission); })
+        .attr("y", function(d) { return y(d.emission); })
+        .attr("height", function(d) { return heightBar - y(d.emission); })
+        .on('mouseover', tip.show) // interactivity of the bars
+        .on('mouseout', tip.hide)
         .attr("fill", function(d){
             if (d.name == "CO2"){
                 return "#e41a1c"
@@ -89,10 +102,10 @@ function updateBar (barData, currentYear, currentID){
   var keys = Object.keys(barData[currentYear][currentID]);
 
   for (i = 1; i < keys.length; i++){
-      array.push({"name": keys[i], "comission": Number((barData[currentYear][currentID][keys[i]]).replace(",", "."))})
+      array.push({"name": keys[i], "emission": Number((barData[currentYear][currentID][keys[i]]).replace(",", "."))})
   };
 
-  y.domain([0, d3.max(array, function(d) { return d.comission; })]);
+  y.domain([0, d3.max(array, function(d) { return d.emission; })]);
 
   d3.select(".yAxis")
     .transition()
@@ -104,6 +117,6 @@ function updateBar (barData, currentYear, currentID){
 
   bars
       .transition().duration(1000)
-      .attr("y", function(d) { return y(d.comission); })
-      .attr("height", function(d) { return heightBar - y(d.comission); });
+      .attr("y", function(d) { return y(d.emission); })
+      .attr("height", function(d) { return heightBar - y(d.emission); });
 };
