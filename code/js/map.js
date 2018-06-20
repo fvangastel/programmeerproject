@@ -5,6 +5,9 @@
 * map.js
 * script that makes the map
 *
+* programmeerproject
+* june 2018
+*
 * source: http://bl.ocks.org/micahstubbs/8e15870eb432a21f0bc4d3d527b2d14f
 */
 

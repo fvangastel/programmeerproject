@@ -1,6 +1,13 @@
-// TO DO:
-// - tooltip
-// - kleuren
+/*
+* Felicia van Gastel
+* 11096187
+*
+* barchart.js
+* script for barchart using json file.
+*
+* programmeerproject
+* june 2018
+*/
 
 // set the dimensions and margins of the graph
 var marginBar = {top: 20, right: 20, bottom: 30, left: 60},

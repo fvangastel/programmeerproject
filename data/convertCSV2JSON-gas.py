@@ -1,12 +1,11 @@
-# ConvertCSV2JSON
+# Felicia van Gastel
+# 11096187
+#
+# ConvertCSV2JSON-gas.py
 # Converts data in csv to json.
 #
-# Name: Felicia van Gastel
-# Student nr: 11096187
-# Date: 27-04-2018
-#
-# Data Processing
-# Week 3
+# programmeerproject
+# june 2018
 
 import csv
 import json

@@ -5,6 +5,8 @@
 * main.js
 * main script that gets the data and makes the charts
 *
+* programmeerproject
+* june 2018
 **/
 
 // set up global variables
