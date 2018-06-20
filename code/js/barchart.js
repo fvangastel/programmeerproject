@@ -9,6 +9,9 @@
 * june 2018
 */
 
+// TO DO:
+// - informatie bij de assen zetten
+
 // set the dimensions and margins of the graph
 var marginBar = {top: 20, right: 20, bottom: 30, left: 60},
     widthBar = 350 - marginBar.left - marginBar.right,
