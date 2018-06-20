@@ -24,7 +24,7 @@ Na de werkgroep heb ik de indeling van mijn github aangepast en alles in de juis
 Het is EINDELIJK gelukt om de kleuren van mijn map aan te passen in de update functie! Nu kan ik eindelijk verder met mijn volgende visualisaties. Als eerst ben ik nog steeds op zoek naar de juiste data, aangezien ik merk dat data van verschillende bronnen ook totaal verschillende data opgeven. Ik probeer twee sets te vinden die het meest overeenkomen met mijn huidige data.
 
 # Dag 9 - dinsdag 19 juni
-Vandaag weer druk aan de slag gegaan met de rest van mijn data en het goed zetten in json bestanden.
+Vandaag weer druk aan de slag gegaan met de rest van mijn data en het goed zetten in json bestanden. Van de komende twee grote datasets heb ik dicts aangemaakt om er goed mee te kunnen werken.
 
 # Dag 10 - woensdag 20 juni
 Vandaag lukte het allemaal niet. Ik vond het moeilijk om met mijn nieuw gestructureerde data aan de slag te gaan. Gelukkig is het uiteindelijk met een beetje hulp van jullie toch gelukt om met mijn data te werken, en hier is een mooie tweede visualisatie uitgerold: de barchart. Ik twijfel nog wel wat mijn derde visualisatie moet worden, aangezien het iets moet zijn wat ik nog niet eerder heb gemaakt.
