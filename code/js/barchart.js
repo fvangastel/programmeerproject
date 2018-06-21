@@ -78,16 +78,16 @@ function makeBar (barData) {
         .on('mouseout', tip.hide)
         .attr("fill", function(d){
             if (d.name == "CO2"){
-                return "#e41a1c"
+                return "#b2182b"
             };
             if (d.name == "CH4"){
-                return "#4daf4a";
+                return "#1b7837";
             };
             if (d.name == "N2O"){
-                return "#377eb8"
+                return "#4575b4"
             };
             if (d.name == "F-GAS"){
-                return "#ffff33"
+                return "#fec44f"
             };
         });
 

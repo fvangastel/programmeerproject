@@ -28,3 +28,6 @@ Vandaag weer druk aan de slag gegaan met de rest van mijn data en het goed zette
 
 # Dag 10 - woensdag 20 juni
 Vandaag lukte het allemaal niet. Ik vond het moeilijk om met mijn nieuw gestructureerde data aan de slag te gaan. Gelukkig is het uiteindelijk met een beetje hulp van jullie toch gelukt om met mijn data te werken, en hier is een mooie tweede visualisatie uitgerold: de barchart. Ik twijfel nog wel wat mijn derde visualisatie moet worden, aangezien het iets moet zijn wat ik nog niet eerder heb gemaakt.
+
+# Dag 11 - donderdag 21 juni
+Vandaag heb ik een beginnetje gemaakt aan de radarchart, en heb ik een searchbar toegevoegd als extra interactie. Wel werken beiden nog niet volledig, dat wil ik dan ook morgen proberen te fixen. Het liefst houd ik me volgende week alleen nog bezig met de opmaak en storytelling.

@@ -12,12 +12,12 @@ import csv
 import json
 from collections import OrderedDict
 
-with open("newData/emissions-by-gas.csv", "r", encoding='utf-8-sig') as csvfile:
+with open("newData/emissions-by-sector-percentages.csv", "r", encoding='utf-8-sig') as csvfile:
 
-    jsonfile = open("newData/emissions-by-gas.json", "w")
+    jsonfile = open("newData/emissions-by-sector-percentages.json", "w")
 
     # the names of the columns in the csv
-    fieldnames = ("country", "id", "year", "F-GAS", "N2O", "CH4", "CO2")
+    fieldnames = ("Country", "Id", "Year", "Energy", "Industry", "Agriculture", "Waste", "Bunker fuels")
 
     # divide the objects by ";"
     reader = csv.DictReader(csvfile, fieldnames, delimiter=";")
@@ -30,18 +30,19 @@ with open("newData/emissions-by-gas.csv", "r", encoding='utf-8-sig') as csvfile:
 
     for row in reader:
         data = OrderedDict()
-        countryID = row["id"]
-        year = row["year"]
+        countryID = row["Id"]
+        year = row["Year"]
 
         if year not in dict:
             dict[year] = {}
 
         dict[year][countryID] = {
-            "country": row["country"],
-            "F-GAS": row["F-GAS"],
-            "N2O": row["N2O"],
-            "CH4": row["CH4"],
-            "CO2": row["CO2"]
+            "Country": row["Country"],
+            "Energy": row["Energy"],
+            "Industry": row["Industry"],
+            "Agriculture": row["Agriculture"],
+            "Waste": row["Waste"],
+            "Bunker fuels": row["Bunker fuels"],
         }
 
     json.dump(dict, jsonfile, indent=4)

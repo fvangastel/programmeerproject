@@ -9,3 +9,7 @@ h2 {
     font-family: 'Ubuntu', sans-serif;
     font-size: 18px;
 }
+
+* {
+  box-sizing: border-box;
+}
