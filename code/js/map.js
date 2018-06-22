@@ -227,6 +227,11 @@ function updateMap(currentYear, barData) {
 };
 
 function searchbar(){
+
+    $(document).ready(function() {
+        $('.selectpicker').selectpicker();
+    });
+
     $(".selectpicker").on("click", function(event) {
       console.log("test")
       console.log($(this))
