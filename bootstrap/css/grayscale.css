@@ -24,6 +24,22 @@ h6 {
   text-transform: uppercase;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+.filter-option-inner-inner {
+    font-size: 14px;
+}
+
+#titleBar {
+    padding-top:30px;
+}
+
+#titleMap {
+    padding-top:30px;
+}
+
 #storytelling,
 #sources {
   margin: 0 0 35px;

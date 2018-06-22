@@ -50,8 +50,6 @@ function makeBar (barData) {
         array.push({"name": keys[i], "emission": Number((barData[1990].WLD[keys[i]]).replace(",", "."))})
     };
 
-    console.log(array)
-
     // Scale the range of the data in the domains
     x.domain(array.map(function(d) { return d.name; }));
     y.domain([0, d3.max(array, function(d) { return d.emission; })]);

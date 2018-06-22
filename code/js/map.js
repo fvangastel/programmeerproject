@@ -236,36 +236,3 @@ function searchbar(){
     })
 
 };
-
-// function dropdownUpdate(){
-//
-//     // Create a dropdown
-//     var dropdown = d3.select("#myDropdown")
-//
-//     dropdown.append("select")
-//        .selectAll("option")
-//        .data(nest)
-//        .enter()
-//        .append("option")
-//        .attr("value", function(d){
-//            return d.id;
-//        })
-//        .text(function(d){
-//            return d.name;
-//        })
-//
-//     // Run update function when dropdown selection changes
-//    	dropdown.on('change', function(){
-//
-//         // Find which fruit was selected from the dropdown
-//         var currentID = d3.select(this)
-//             .select("select")
-//             .property("value")
-//
-//         document.getElementById("titleMap").innerHTML = "Annual greenhouse gas emissions per country (MtCO2e), " + String(val);
-//         document.getElementById("titleBar").innerHTML = "Emissions per gas in " + currentCountry + ", " + String(val) + " (MtCO2e)";
-//
-//         updateBar(barData, currentYear, currentID);
-//
-//     });
-// };
