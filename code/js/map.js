@@ -124,7 +124,7 @@ function makeMap (currentYear, mapData, emissionData) {
         currentID = d.id;
         currentCountry = d.properties.name;
         updateBar(barData, currentYear, currentID)
-        document.getElementById("titleBar").innerHTML = "Emissions per gas in " + currentCountry + ", " + currentYear + " (ktCO2e)";
+        document.getElementById("titleBar").innerHTML = "Emissions per gas in " + currentCountry + ", " + currentYear + " (MtCO2e)";
       });
 
     makeSlider();

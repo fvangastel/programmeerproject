@@ -15,7 +15,7 @@
 // set the dimensions and margins of the graph
 var marginBar = {top: 20, right: 20, bottom: 30, left: 60},
     widthBar = 350 - marginBar.left - marginBar.right,
-    heightBar = 300 - marginBar.top - marginBar.bottom;
+    heightBar = 250 - marginBar.top - marginBar.bottom;
 
 // set the ranges
 var x = d3.scaleBand()
@@ -42,12 +42,15 @@ function makeBar (barData) {
       .attr("transform",
             "translate(" + marginBar.left + "," + marginBar.top + ")");
 
-    var keys = Object.keys(barData[1990].WLD);
     array = [];
+
+    var keys = Object.keys(barData[1990].WLD);
 
     for (i = 1; i < keys.length; i++){
         array.push({"name": keys[i], "emission": Number((barData[1990].WLD[keys[i]]).replace(",", "."))})
     };
+
+    console.log(array)
 
 
     // Scale the range of the data in the domains

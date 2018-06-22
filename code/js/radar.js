@@ -13,8 +13,8 @@ function makeRadar (radarData) {
     // set up configutation for the radar chart
     var cfg = {
         radius: 5,
-        w: 250,
-        h: 250,
+        w: 200,
+        h: 200,
         factor: 1,
         factorLegend: .85,
         levels: 5,

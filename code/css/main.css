@@ -1,8 +1,6 @@
 h1 {
-    /* padding-left: 10px; */
     font-family: 'Ubuntu', sans-serif;
     font-size: 30px;
-    padding-top: 10px;
 }
 
 h2 {
@@ -16,9 +14,9 @@ h2 {
 }
 
 #titleBar {
-    padding-top:20px;
+    padding-top:30px;
 }
 
 #titleMap {
-    padding-top:20px;
+    padding-top:30px;
 }
