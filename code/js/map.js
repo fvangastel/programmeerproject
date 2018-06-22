@@ -18,8 +18,8 @@ var totalYears = 43;
 var currentID = "WLD";
 var currentCountry = "World";
 
-var widthMap = 900
-var heightMap = 500
+var widthMap = 800
+var heightMap = 400
 
 var color = d3.scaleThreshold()
     .domain([50000, 100000, 250000, 500000, 1000000, 2500000, 5000000,
@@ -56,7 +56,7 @@ function makeMap (currentYear, mapData, emissionData) {
         }
     }
 
-    var svgMap = d3.select("#map")
+    var svgMap = d3.select("#visualMap")
                 .append("svg")
                 .attr("width", widthMap)
                 .attr("height", heightMap)
@@ -228,14 +228,13 @@ function updateMap(currentYear, barData) {
 
 function searchbar(){
 
-    $(document).ready(function() {
+    $(".selectpicker").click(function(event) {
         $('.selectpicker').selectpicker();
-    });
+        console.log("option clicked");
+        console.log($('select[name=countrySelection]').val(1));
+        console.log($('.selectpicker').selectpicker('refresh'));
+    })
 
-    $(".selectpicker").on("click", function(event) {
-      console.log("test")
-      console.log($(this))
-    });
 };
 
 // function dropdownUpdate(){

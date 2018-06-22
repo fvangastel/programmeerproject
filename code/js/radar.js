@@ -145,22 +145,26 @@ function makeRadar (radarData) {
         //      console.log(y)
         //  });
 
-         g.selectAll(".nodes")
-          .data(y, function(j, i){
+        dataValues.push([
+           cfg.w/2*(1-(parseFloat(Math.max(y.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(x*cfg.radians/total)),
+           cfg.h/2*(1-(parseFloat(Math.max(y.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(x*cfg.radians/total))
+         ]);
 
-              console.log(y)
-             dataValues.push([
-                cfg.w/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total)),
-                cfg.h/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total))
-              ]);
-              console.log(i)
-              console.log(j)
-              console.log(y)
-          });
+       g.selectAll(".nodes")
+        .data(dataValues);
 
-         dataValues.push(dataValues[0]);
+         // g.selectAll(".nodes")
+         //  .data(y, function(j, i){
+         //     console.log(y)
+         //     dataValues.push([
+         //        cfg.w/2*(1-(parseFloat(Math.max(y.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total)),
+         //        cfg.h/2*(1-(parseFloat(Math.max(y.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total))
+         //      ]);
+         //  });
 
-         console.log(dataValues)
+         // dataValues.push(dataValues[0]);
+
+         console.log(dataValues);
 
          // set up the area between the nodes
          g.selectAll(".area")
