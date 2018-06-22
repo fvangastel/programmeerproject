@@ -1,3 +1,14 @@
+/*
+* Felicia van Gastel
+* 11096187
+*
+* radar.js
+* script for radar chart using json datafile.
+*
+* programmeerproject
+* june 2018
+*/
+
 function makeRadar (radarData) {
 
     // set up width and height for svg
@@ -132,8 +143,8 @@ function makeRadar (radarData) {
         console.log(x);
 
         var dataValues = [];
-        //
-        // // set up nodes with correct coordinates
+
+        // //set up nodes with correct coordinates
         // g.selectAll(".nodes")
         //  .data(y, function(j, i){
         //     dataValues.push([
@@ -150,19 +161,10 @@ function makeRadar (radarData) {
            cfg.h/2*(1-(parseFloat(Math.max(y.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(x*cfg.radians/total))
          ]);
 
-       g.selectAll(".nodes")
-        .data(dataValues);
+         g.selectAll(".nodes")
+          .data(dataValues);
 
-         // g.selectAll(".nodes")
-         //  .data(y, function(j, i){
-         //     console.log(y)
-         //     dataValues.push([
-         //        cfg.w/2*(1-(parseFloat(Math.max(y.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total)),
-         //        cfg.h/2*(1-(parseFloat(Math.max(y.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total))
-         //      ]);
-         //  });
-
-         // dataValues.push(dataValues[0]);
+         dataValues.push(dataValues[0]);
 
          console.log(dataValues);
 

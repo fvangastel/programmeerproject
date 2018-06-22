@@ -3,14 +3,11 @@
 * 11096187
 *
 * barchart.js
-* script for barchart using json file.
+* script for barchart using json datafile.
 *
 * programmeerproject
 * june 2018
 */
-
-// TO DO:
-// - informatie bij de assen zetten
 
 // set the dimensions and margins of the graph
 var marginBar = {top: 20, right: 20, bottom: 30, left: 60},

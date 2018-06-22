@@ -3,7 +3,7 @@
 * 11096187
 *
 * main.js
-* main script that gets the data and makes the charts
+* main script that gets the data and calls the functions to make the charts
 *
 * programmeerproject
 * june 2018
