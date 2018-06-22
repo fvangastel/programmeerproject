@@ -15,7 +15,7 @@
 // set the dimensions and margins of the graph
 var marginBar = {top: 20, right: 20, bottom: 30, left: 60},
     widthBar = 350 - marginBar.left - marginBar.right,
-    heightBar = 500 - marginBar.top - marginBar.bottom;
+    heightBar = 300 - marginBar.top - marginBar.bottom;
 
 // set the ranges
 var x = d3.scaleBand()
@@ -35,7 +35,7 @@ function makeBar (barData) {
   // append the svg object to the body of the page
   // append a 'group' element to 'svg'
   // moves the 'group' element to the top left margin
-  svgBar = d3.select("#map").append("svg")
+  svgBar = d3.select("#barchart").append("svg")
       .attr("width", widthBar + marginBar.left + marginBar.right)
       .attr("height", heightBar + marginBar.top + marginBar.bottom)
     .append("g")

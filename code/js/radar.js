@@ -1,8 +1,8 @@
 function makeRadar (radarData) {
 
     // set up width and height for svg
-    var widthSvg = 500,
-        heightSvg = 500;
+    var widthSvg = 300,
+        heightSvg = 300;
 
     // make svg
     var svg = d3.select("#radar")
@@ -13,8 +13,8 @@ function makeRadar (radarData) {
     // set up configutation for the radar chart
     var cfg = {
         radius: 5,
-        w: 300,
-        h: 300,
+        w: 250,
+        h: 250,
         factor: 1,
         factorLegend: .85,
         levels: 5,
@@ -130,24 +130,41 @@ function makeRadar (radarData) {
     array.forEach(function(y, x){
         console.log(y);
         console.log(x);
-        dataValues = [];
 
-        // set up nodes with correct coordinates
-        g.selectAll(".nodes")
-         .data(y, function(j, i){
-           console.log(j);
-           dataValues.push([
-             cfg.w/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total)),
-             cfg.h/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total))
-           ]);
-         });
-         console.log(dataValues)
+        var dataValues = [];
+        //
+        // // set up nodes with correct coordinates
+        // g.selectAll(".nodes")
+        //  .data(y, function(j, i){
+        //     dataValues.push([
+        //        cfg.w/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total)),
+        //        cfg.h/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total))
+        //      ]);
+        //      console.log(i)
+        //      console.log(j)
+        //      console.log(y)
+        //  });
+
+         g.selectAll(".nodes")
+          .data(y, function(j, i){
+
+              console.log(y)
+             dataValues.push([
+                cfg.w/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total)),
+                cfg.h/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total))
+              ]);
+              console.log(i)
+              console.log(j)
+              console.log(y)
+          });
 
          dataValues.push(dataValues[0]);
 
+         console.log(dataValues)
+
          // set up the area between the nodes
          g.selectAll(".area")
-          .data([array])
+          .data(dataValues)
           .enter()
           .append("polygon")
           .attr("class", "radar-chart-serie"+series)
@@ -177,6 +194,8 @@ function makeRadar (radarData) {
                     .style("fill-opacity", cfg.opacityArea);
           });
       series++;
+
       });
    series=0;
+
 };

@@ -1,15 +1,23 @@
 h1 {
-    padding-left: 30px;
+    /* padding-left: 10px; */
     font-family: 'Ubuntu', sans-serif;
     font-size: 30px;
+    padding-top: 10px;
 }
 
 h2 {
-    padding-left: 950px;
     font-family: 'Ubuntu', sans-serif;
     font-size: 18px;
 }
 
 * {
   box-sizing: border-box;
+}
+
+#titleBar {
+    padding-top:20px;
+}
+
+#titleMap {
+    padding-top:20px;
 }

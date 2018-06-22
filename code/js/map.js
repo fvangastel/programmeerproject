@@ -100,33 +100,31 @@ function makeMap (currentYear, mapData, emissionData) {
                 return color(d.properties.value);
             }
           })
-        .style('stroke', 'white')
+        .style('stroke', 'slategrey')
         .style('stroke-width', 1.5)
         // tooltips
-          .style("stroke","white")
+          .style("stroke","slategrey")
           .style('stroke-width', 0.3)
           .on('mouseover',function(d){
             tip.show(d);
 
     d3.select(this)
       .style("opacity", 0.8)
-      .style("stroke","white")
+      .style("stroke","slategrey")
       .style("stroke-width",3);
   })
       .on('mouseout', function(d){
         tip.hide(d);
         d3.select(this)
           .style("opacity", 1.0)
-          .style("stroke","white")
+          .style("stroke","slategrey")
           .style("stroke-width",0.3);
       })
       .on('click', function(d){
         currentID = d.id;
-        console.log(d);
         currentCountry = d.properties.name;
-        console.log(currentCountry);
         updateBar(barData, currentYear, currentID)
-        document.getElementById("titleBar").innerHTML = "Emissions per gas in " + currentCountry + ", " + currentYear + " (MtCO2e)";
+        document.getElementById("titleBar").innerHTML = "Emissions per gas in " + currentCountry + ", " + currentYear + " (ktCO2e)";
       });
 
     makeSlider();
@@ -145,7 +143,7 @@ function makeSlider () {
       .tickFormat(d3.format(""))
       .on('onchange', val => {
         currentYear = val;
-        document.getElementById("titleMap").innerHTML = "Annual greenhouse gas emissions per country (MtCO2e), " + String(val);
+        document.getElementById("titleMap").innerHTML = "Annual greenhouse gas emissions per country (ktCO2e), " + String(val);
         document.getElementById("titleBar").innerHTML = "Emissions per gas in " + currentCountry + ", " + String(val) + " (MtCO2e)";
         updateMap(currentYear);
         updateBar(barData, currentYear, currentID);
@@ -158,7 +156,7 @@ function makeSlider () {
       .attr("transform", "translate(50,20)");
 
     g.call(slider);
-}
+};
 
 function makeLegend () {
     var threshold = d3.scaleThreshold()
@@ -210,14 +208,10 @@ function updateMap(currentYear, barData) {
                                 return color(emission);
                             }
                         })
-
                     break;
                 }
-
             }
-
           }
-
         }
 
         // update map colors
@@ -231,3 +225,43 @@ function updateMap(currentYear, barData) {
                 }
             })
 };
+
+function searchbar(){
+    $(".selectpicker").on("click", function(event) {
+      console.log("test")
+      console.log($(this))
+    });
+};
+
+// function dropdownUpdate(){
+//
+//     // Create a dropdown
+//     var dropdown = d3.select("#myDropdown")
+//
+//     dropdown.append("select")
+//        .selectAll("option")
+//        .data(nest)
+//        .enter()
+//        .append("option")
+//        .attr("value", function(d){
+//            return d.id;
+//        })
+//        .text(function(d){
+//            return d.name;
+//        })
+//
+//     // Run update function when dropdown selection changes
+//    	dropdown.on('change', function(){
+//
+//         // Find which fruit was selected from the dropdown
+//         var currentID = d3.select(this)
+//             .select("select")
+//             .property("value")
+//
+//         document.getElementById("titleMap").innerHTML = "Annual greenhouse gas emissions per country (MtCO2e), " + String(val);
+//         document.getElementById("titleBar").innerHTML = "Emissions per gas in " + currentCountry + ", " + String(val) + " (MtCO2e)";
+//
+//         updateBar(barData, currentYear, currentID);
+//
+//     });
+// };
