@@ -31,3 +31,6 @@ Vandaag lukte het allemaal niet. Ik vond het moeilijk om met mijn nieuw gestruct
 
 # Dag 11 - donderdag 21 juni
 Vandaag heb ik een beginnetje gemaakt aan de radarchart, en heb ik een searchbar toegevoegd als extra interactie. Wel werken beiden nog niet volledig, dat wil ik dan ook morgen proberen te fixen. Het liefst houd ik me volgende week alleen nog bezig met de opmaak en storytelling.
+
+# Dag 12 - vrijdag 22 juni
+Vandaag heb ik een bootstrap toegevoegd, mooie layout en alles mooi in containers geplaatst. Komende week moet ik dus nog mijn radar chart laten functioneren, mijn search/select bar laten functioneren en evt de laatste dingetjes aan mijn code aanpassen. Daarna moet er als laatst nog een storytelling worden toegevoegd en een filmpje worden gemaakt over de functionaliteit. Drukke week dus weer voor de boeg.
