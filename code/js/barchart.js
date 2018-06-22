@@ -52,7 +52,6 @@ function makeBar (barData) {
 
     console.log(array)
 
-
     // Scale the range of the data in the domains
     x.domain(array.map(function(d) { return d.name; }));
     y.domain([0, d3.max(array, function(d) { return d.emission; })]);
