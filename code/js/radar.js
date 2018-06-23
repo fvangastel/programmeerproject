@@ -48,7 +48,7 @@ function makeRadar (radarData) {
         array.push({"name": keys[i], "value": Number((radarData[1990].WLD[keys[i]]).replace(",", ".")*100)})
     };
 
-    console.log(array)
+    // console.log(array)
 
     // create names for axis
     var allAxis = (array.map(function(i, j){return i.name}));
@@ -137,32 +137,28 @@ function makeRadar (radarData) {
       .attr("x", function(d, i){return cfg.w/2*(1-cfg.factorLegend*Math.sin(i*cfg.radians/total))-60*Math.sin(i*cfg.radians/total);})
       .attr("y", function(d, i){return cfg.h/2*(1-Math.cos(i*cfg.radians/total))-20*Math.cos(i*cfg.radians/total);});
 
-
-    array.forEach(function(y, x){
-        console.log(y);
-        console.log(x);
-
         var dataValues = [];
 
-        // //set up nodes with correct coordinates
-        // g.selectAll(".nodes")
-        //  .data(y, function(j, i){
-        //     dataValues.push([
-        //        cfg.w/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total)),
-        //        cfg.h/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total))
-        //      ]);
-        //      console.log(i)
-        //      console.log(j)
-        //      console.log(y)
-        //  });
+    array.forEach(function(y, x){
+        // console.log(y); // moet een array zijn met alle objecten, is nu een apart object
+        // console.log(x);
 
-        dataValues.push([
-           cfg.w/2*(1-(parseFloat(Math.max(y.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(x*cfg.radians/total)),
-           cfg.h/2*(1-(parseFloat(Math.max(y.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(x*cfg.radians/total))
-         ]);
+        // array.forEach(function(d){
+        //   console.log(d); // moet een array zijn met objecten
+        //   // console.log(x);
 
-         g.selectAll(".nodes")
-          .data(dataValues);
+        //set up nodes with correct coordinates
+        g.selectAll(".nodes")
+         .data([array], function(){
+
+            console.log(y); // moet een object zijn
+            console.log(x); // moet nr van object zijn
+
+            dataValues.push([
+               cfg.w/2*(1-(parseFloat(Math.max(y.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(x*cfg.radians/total)),
+               cfg.h/2*(1-(parseFloat(Math.max(y.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(x*cfg.radians/total))
+             ]);
+         });
 
          dataValues.push(dataValues[0]);
 
@@ -170,7 +166,7 @@ function makeRadar (radarData) {
 
          // set up the area between the nodes
          g.selectAll(".area")
-          .data(dataValues)
+          .data([dataValues])
           .enter()
           .append("polygon")
           .attr("class", "radar-chart-serie"+series)
@@ -204,4 +200,48 @@ function makeRadar (radarData) {
       });
    series=0;
 
-};
+   var tooltip = d3.select("body").append("div").attr("class", "toolTip");
+       array.forEach(function(y, x){
+         console.log(y);
+         console.log(x);
+
+         g.selectAll(".nodes")
+         .data(y).enter()
+         .append("svg:circle")
+         .attr("class", "radar-chart-serie"+series)
+         .attr('r', cfg.radius)
+         .attr("alt", function(j){
+           console.log(j);
+           return Math.max(j.value, 0)})
+         .attr("cx", function(j, i){
+           console.log(j);
+           console.log(i);
+           dataValues.push([
+           cfg.w/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total)),
+           cfg.h/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total)),
+           console.log(dataValues);
+         ]);
+         return cfg.w/2*(1-(Math.max(j.value, 0)/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total));
+         })
+         .attr("cy", function(j, i){
+           console.log(j);
+           console.log(i);
+           return cfg.h/2*(1-(Math.max(j.value, 0)/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total));
+         })
+         .attr("data-id", function(j){return j.area})
+         .style("fill", "#fff")
+         .style("stroke-width", "2px")
+         .style("stroke", cfg.color(series)).style("fill-opacity", .9)
+         .on('mouseover', function (d){
+           console.log(d.area)
+               tooltip
+                 .style("left", d3.event.pageX - 40 + "px")
+                 .style("top", d3.event.pageY - 80 + "px")
+                 .style("display", "inline-block")
+         				.html((d.area) + "<br><span>" + (d.value) + "</span>");
+               })
+       		.on("mouseout", function(d){ tooltip.style("display", "none");});
+
+         series++;
+       });
+     };
