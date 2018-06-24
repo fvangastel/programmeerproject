@@ -8,7 +8,6 @@
 .d3-tip {
 line-height: 1.5;
 font-weight: 400;
-font-family:"avenir next", Arial, sans-serif;
 padding: 6px;
 background: rgba(0, 0, 0, 0.6);
 /* color: #ffff00; */
@@ -30,12 +29,9 @@ pointer-events: none;
 
 }
 
-  text.label {
-      font-size: 12px;
-  }
-/*    text{
-      pointer-events:none;
-    }*/
+text {
+    font-size: 11px;
+}
 
   .details{
     color:white;
