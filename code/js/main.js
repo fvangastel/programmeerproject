@@ -12,6 +12,8 @@
 // set up global variables
 var mapData;
 var emissionData;
+var barData;
+var radarData;
 var currentYear = 1990;
 var currentID;
 

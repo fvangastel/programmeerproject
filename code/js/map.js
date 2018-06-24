@@ -124,6 +124,7 @@ function makeMap (currentYear, mapData, emissionData) {
         currentID = d.id;
         currentCountry = d.properties.name;
         updateBar(barData, currentYear, currentID)
+        updateRadar(radarData, currentYear, currentID)
         document.getElementById("titleBar").innerHTML = "Emissions per gas in " + currentCountry + ", " + currentYear + " (MtCO2e)";
       });
 
@@ -147,6 +148,7 @@ function makeSlider () {
         document.getElementById("titleBar").innerHTML = "Emissions per gas in " + currentCountry + ", " + String(val) + " (MtCO2e)";
         updateMap(currentYear);
         updateBar(barData, currentYear, currentID);
+        updateRadar(radarData, currentYear, currentID);
       });
 
     var g = d3.select("#sliderMap").append("svg")
