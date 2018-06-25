@@ -41,6 +41,5 @@ function getData(error, data) {
     makeMap(currentYear, mapData, emissionData);
     makeBar(barData);
     makeRadar(radarData);
-
-    searchbar();
+    select();
 };

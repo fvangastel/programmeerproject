@@ -57,7 +57,8 @@ function makeBar (barData) {
         .offset([-10, 0])
         .html(function(d) {
           console.log(d)
-          return (d3.format(".2%")(d.emission/d3.sum(array.map(function(v){ return v.emission; }))));
+          // return (d3.format(".2%")(d.emission/d3.sum(array.map(function(v){ return v.emission; }))));
+          return d3.format(".1f")(d.emission)+ " MtCO2e";
       });
 
     // Call tip
