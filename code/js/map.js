@@ -63,7 +63,7 @@ function makeMap (currentYear, mapData, emissionData) {
                 .append('g')
                 .attr('class', 'map');
 
-    var tip = d3.tip()
+    var mapTip = d3.tip()
             .attr('class', 'd3-tip')
             .offset([-10, 0])
             .html(function(d) {
@@ -82,7 +82,7 @@ function makeMap (currentYear, mapData, emissionData) {
 
             })
 
-    svgMap.call(tip);
+    svgMap.call(mapTip);
 
     svgMap.append("g")
         .attr("class", "countries")
@@ -106,7 +106,7 @@ function makeMap (currentYear, mapData, emissionData) {
           .style("stroke","slategrey")
           .style('stroke-width', 0.3)
           .on('mouseover',function(d){
-            tip.show(d);
+            mapTip.show(d);
 
     d3.select(this)
       .style("opacity", 0.8)
@@ -114,7 +114,7 @@ function makeMap (currentYear, mapData, emissionData) {
       .style("stroke-width",3);
   })
       .on('mouseout', function(d){
-        tip.hide(d);
+        mapTip.hide(d);
         d3.select(this)
           .style("opacity", 1.0)
           .style("stroke","slategrey")
@@ -126,6 +126,7 @@ function makeMap (currentYear, mapData, emissionData) {
         updateBar(barData, currentYear, currentID)
         updateRadar(radarData, currentYear, currentID)
         document.getElementById("titleBar").innerHTML = "Emissions per gas in " + currentCountry + ", " + currentYear + " (MtCO2e)";
+        document.getElementById("titleRadar").innerHTML = "Emissions per sector in " + currentCountry + ", " + currentYear;
       });
 
     makeSlider();
@@ -146,6 +147,7 @@ function makeSlider () {
         currentYear = val;
         document.getElementById("titleMap").innerHTML = "Annual greenhouse gas emissions per country (ktCO2e), " + String(val);
         document.getElementById("titleBar").innerHTML = "Emissions per gas in " + currentCountry + ", " + String(val) + " (MtCO2e)";
+        document.getElementById("titleRadar").innerHTML = "Emissions per sector in " + currentCountry + ", " + String(val);
         updateMap(currentYear);
         updateBar(barData, currentYear, currentID);
         updateRadar(radarData, currentYear, currentID);

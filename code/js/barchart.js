@@ -41,7 +41,7 @@ function makeBar (barData) {
 
     array = [];
 
-    var keys = Object.keys(barData[1990].WLD);
+    let keys = Object.keys(barData[1990].WLD);
 
     for (i = 1; i < keys.length; i++){
         array.push({"name": keys[i], "emission": Number((barData[1990].WLD[keys[i]]).replace(",", "."))})
@@ -52,15 +52,16 @@ function makeBar (barData) {
     y.domain([0, d3.max(array, function(d) { return d.emission; })]);
 
     // initialize tip to create interactivity of bars
-    var tip = d3.tip()
-        .attr('class', 'd3-tip')
+    var barTip = d3.tip()
+        .attr("class", "d3-tip")
         .offset([-10, 0])
         .html(function(d) {
-          return d3.format(".2%")(d.emission/d3.sum(array.map(function(v){ return v.emission; })));
+          console.log(d)
+          return (d3.format(".2%")(d.emission/d3.sum(array.map(function(v){ return v.emission; }))));
       });
 
     // Call tip
-    svgBar.call(tip);
+    svgBar.call(barTip);
 
     // append the rectangles for the bar chart
     svgBar.selectAll(".bar")
@@ -71,8 +72,8 @@ function makeBar (barData) {
         .attr("width", x.bandwidth())
         .attr("y", function(d) { return y(d.emission); })
         .attr("height", function(d) { return heightBar - y(d.emission); })
-        .on('mouseover', tip.show) // interactivity of the bars
-        .on('mouseout', tip.hide)
+        .on('mouseover', barTip.show) // interactivity of the bars
+        .on('mouseout', barTip.hide)
         .attr("fill", function(d){
             if (d.name == "CO2"){
                 return "#b2182b"
@@ -106,7 +107,7 @@ function updateBar (barData, currentYear, currentID){
 
   array = [];
 
-  var keys = Object.keys(barData[currentYear][currentID]);
+  let keys = Object.keys(barData[currentYear][currentID]);
 
   for (i = 1; i < keys.length; i++){
       array.push({"name": keys[i], "emission": Number((barData[currentYear][currentID][keys[i]]).replace(",", "."))})

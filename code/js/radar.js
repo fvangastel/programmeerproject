@@ -45,7 +45,7 @@ var cfg = {
 function makeRadar (radarData) {
 
     // put current dict data in an array
-    var keys = Object.keys(radarData[2006].NLD);
+    let keys = Object.keys(radarData[2006].NLD);
     array = [];
 
     for (i = 1; i < keys.length; i++){
@@ -245,7 +245,7 @@ function makeRadar (radarData) {
   function updateRadar(radarData, currentYear, currentID){
 
     array = [];
-    var keys = Object.keys(radarData[currentYear][currentID]);
+    let keys = Object.keys(radarData[currentYear][currentID]);
 
     for (i = 1; i < keys.length; i++){
         array.push({"name": keys[i], "value": Number((radarData[currentYear][currentID][keys[i]]).replace(",", "."))})
