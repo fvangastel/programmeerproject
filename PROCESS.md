@@ -34,3 +34,6 @@ Vandaag heb ik een beginnetje gemaakt aan de radarchart, en heb ik een searchbar
 
 # Dag 12 - vrijdag 22 juni
 Vandaag heb ik een bootstrap toegevoegd, mooie layout en alles mooi in containers geplaatst. Komende week moet ik dus nog mijn radar chart laten functioneren (ik snap niet waarom mijn data niet in wordt geladen), mijn search/select bar laten functioneren (nu hij in mn bootstrap zit, werkt ie niet goed meer) en evt de laatste dingetjes aan mijn code aanpassen. Daarna moet er als laatst nog een storytelling worden toegevoegd en een filmpje worden gemaakt over de functionaliteit. Drukke week dus weer voor de boeg.
+
+# Dag 13 - maandag 25 juni
+Van het weekend heb ik mijn radar chart aan de praat gekregen, alleen zitten er nog wel bugs in. Vandaag wil ik deze bugs fixen, en de search bar werkend zien te krijgen. Hiernaast heb ik gemerkt dat door het toevoegen van mijn radarchart, de tooltip van mijn barchart niet goed meer werkt. Dit moet k ook nog even fixen.

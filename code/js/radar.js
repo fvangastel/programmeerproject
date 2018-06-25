@@ -255,7 +255,6 @@ function makeRadar (radarData) {
 
     var dataValues = [];
 
-    //
     array.forEach(function(y, x){
 
         //set up nodes with correct coordinates
