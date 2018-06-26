@@ -14,9 +14,9 @@ var mapData;
 var emissionData;
 var barData;
 var radarData;
-var currentYear = 1990;
+var currentYear = "1990";
 var currentCountry = "World";
-var currentID;
+var currentID = "WLD";
 
 // load the 3 json files
 window.onload = function() {
@@ -39,8 +39,8 @@ function getData(error, data) {
     radarData = data[3];
 
     // call other visualization functions
-    makeMap(currentYear, mapData, emissionData);
+    makeMap(mapData, emissionData);
     makeBar(barData);
-    makeRadar(radarData);
+    makeRadar(radarData, currentYear, currentID);
     select();
 };

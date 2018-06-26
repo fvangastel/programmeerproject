@@ -11,14 +11,12 @@
 * source: http://bl.ocks.org/micahstubbs/8e15870eb432a21f0bc4d3d527b2d14f
 */
 
-// TO DO:
-// NIEUWE DATA ERIN ZETTEN
-
 var totalYears = 43;
-var currentID = "WLD";
-
 var widthMap = 800
 var heightMap = 400
+
+currentID = "WLD";
+currentYear = "1990";
 
 var color = d3.scaleThreshold()
     .domain([50000, 100000, 250000, 500000, 1000000, 2500000, 5000000,
@@ -31,7 +29,7 @@ var projection = d3.geoMercator()
 
 var path = d3.geoPath().projection(projection);
 
-function makeMap (currentYear, mapData, emissionData) {
+function makeMap (mapData, emissionData) {
 
     // iterate over the data file and separate into name and population value
     for (var i = 0; i < emissionData.length; i++) {
@@ -123,7 +121,7 @@ function makeMap (currentYear, mapData, emissionData) {
         currentID = d.id;
         currentCountry = d.properties.name;
         updateBar(barData, currentYear, currentID)
-        updateRadar(radarData, currentYear, currentID)
+        makeRadar(radarData, currentYear, currentID)
       });
 
     makeSlider();
@@ -144,7 +142,7 @@ function makeSlider () {
         currentYear = val;
         updateMap(currentYear);
         updateBar(barData, currentYear, currentID);
-        updateRadar(radarData, currentYear, currentID);
+        makeRadar(radarData, currentYear, currentID);
       });
 
     var g = d3.select("#sliderMap").append("svg")
@@ -222,5 +220,5 @@ function updateMap(currentYear, barData) {
                     return color(emission);
                 }
             })
-    document.getElementById("titleMap").innerHTML = "Annual greenhouse gas emissions (ktCO2e) per country, " + String(val);
+    document.getElementById("titleMap").innerHTML = "Annual greenhouse gas emissions (ktCO2e) per country, " + currentYear;
 };

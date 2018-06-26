@@ -37,3 +37,6 @@ Vandaag heb ik een bootstrap toegevoegd, mooie layout en alles mooi in container
 
 # Dag 13 - maandag 25 juni
 Van het weekend heb ik mijn radar chart aan de praat gekregen, alleen zitten er nog wel bugs in. Vandaag wil ik deze bugs fixen, en de search bar werkend zien te krijgen. Hiernaast heb ik gemerkt dat door het toevoegen van mijn radarchart, de tooltip van mijn barchart niet goed meer werkt. Dit moet k ook nog even fixen.
+
+# Dag 14 - dinsdag 26 juni
+Het is gisteren gelukt mijn select bar te laten werken, en al mijn visualisaties hierop te laten updaten! In principe werkt nu dus alles. Radar chart werkt wel met een nieuwe maak functie ipv update functie, denk dat die update functie toch net iets te ingewikkeld voor me wordt. Ben allang blij dat alles nu werkt ;). Nu verder met het oplossen van alle overige bugs en evt paar mooie style dingen toevoegen.

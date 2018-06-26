@@ -129,5 +129,5 @@ function updateBar (barData, currentYear, currentID){
       .attr("y", function(d) { return y(d.emission); })
       .attr("height", function(d) { return heightBar - y(d.emission); });
 
-  document.getElementById("titleBar").innerHTML = "Emissions (MtCO2e) per gas in " + currentCountry + ", " + currentYear;
+  document.getElementById("titleBar").innerHTML = "Emissions (MtCO2e) per gas in <br>" + currentCountry + ", " + currentYear;
 };
