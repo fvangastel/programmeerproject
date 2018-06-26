@@ -22,9 +22,9 @@ var currentID = "WLD";
 window.onload = function() {
     d3.queue()
         .defer(d3.json, "data/world_countries.json")
-        .defer(d3.json, "data/total-greenhouse-gas-emissions.json")
-        .defer(d3.json, "data/newData/emissions-by-gas.json")
-        .defer(d3.json, "data/newData/emissions-by-sector-percentages.json")
+        .defer(d3.json, "data/emissions-totals.json")
+        .defer(d3.json, "data/emissions-by-gas.json")
+        .defer(d3.json, "data/emissions-by-sector-percentages.json")
         .awaitAll(function(error, data){getData(error, data)});
 };
 

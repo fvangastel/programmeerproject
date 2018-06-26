@@ -40,7 +40,7 @@ var cfg = {
     TranslateY: 30,
     ExtraWidthX: 150,
     ExtraWidthY: 150,
-    color: d3.scaleOrdinal().range(["#6F257F", "#CA0D59"])
+    color: d3.scaleOrdinal().range(["#b2182b", "#CA0D59"])
 };
 
 function makeRadar (radarData, currentYear, currentID) {

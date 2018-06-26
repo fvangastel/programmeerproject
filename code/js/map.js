@@ -168,10 +168,10 @@ function makeLegend () {
 
     var legend = d3.legendColor()
       .shapeWidth(90)
-      .cells(10)
-      .orient('horizontal')
-      .scale(threshold)
-      .labelFormat(d3.format(","));
+      .labels(d3.legendHelpers.thresholdLabels)
+      .orient("horizontal")
+      .labelFormat(d3.format(","))
+      .scale(threshold);
 
     g.call(legend);
 };
