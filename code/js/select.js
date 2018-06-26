@@ -6,5 +6,5 @@ function select() {
         currentCountry = $option.text();
 
         updateBar(barData, currentYear, currentID);
-        updateRadar(radarData, currentYear, currentID);
+        makeRadar(radarData, currentYear, currentID);
 })};

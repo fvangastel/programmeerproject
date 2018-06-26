@@ -65,16 +65,13 @@ function makeMap (mapData, emissionData) {
             .offset([-10, 0])
             .html(function(d) {
               if (d.properties.value == 0 || NaN) {
-                  return "<strong>Country: </strong><span class='details'>" +
-                      d.properties.name + "<br></span>" +
-                      "<strong>Emission: </strong><span class='details'>" +
-                      "No data" +"</span>";
+                  return
+                      d.properties.name + "<br>" +
+                      "<span>" + "No data" + "</span>";
               }
               else {
-                  return "<strong>Country: </strong><span class='details'>" +
-                      d.properties.name + "<br></span>" +
-                      "<strong>Emission: </strong><span class='details'>" +
-                      d3.format(",")(d.properties.value) +"</span>";
+                  return d.properties.name + "<br>" +
+                      "<span>" + d3.format(",")(d.properties.value) + "</span>";
               }
 
             })

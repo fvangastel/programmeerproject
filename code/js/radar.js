@@ -143,8 +143,6 @@ function makeRadar (radarData, currentYear, currentID) {
     let dataValues = [];
     let dataArray = [array];
 
-    console.log(dataArray);
-
     dataArray.forEach(function(y, x){
 
         //set up nodes with correct coordinates
@@ -154,10 +152,7 @@ function makeRadar (radarData, currentYear, currentID) {
                cfg.w/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total)),
                cfg.h/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total))
              ]);
-             console.log(dataValues);
          });
-
-         console.log(dataValues);
 
          // set up the area between the nodes
          g.selectAll(".area")
@@ -200,7 +195,7 @@ function makeRadar (radarData, currentYear, currentID) {
        array.forEach(function(y, x){
 
          g.selectAll(".nodes")
-         .data([array]).enter() // data is volledige array met objecten, klopt
+         .data([array]).enter()
          .append("svg:circle")
          .attr("class", "radar-chart-serie"+series)
          .attr('r', cfg.radius)
@@ -229,110 +224,7 @@ function makeRadar (radarData, currentYear, currentID) {
          				.html((y.name) + "<br><span>" + d3.format(".2f")(y.value) + "%" + "</span>");
                })
        		.on("mouseout", function(d){ tooltip.style("display", "none");});
-
-         // series++;
        });
 
-       document.getElementById("titleRadar").innerHTML = "Emissions (%) per sector in <br>" + currentCountry + ", " + currentYear;
-     };
-
-// function updateRadar(radarData, currentYear, currentID){
-//
-//     // console.log(radarData)
-//     // console.log(currentYear)
-//     // console.log(currentID)
-//
-//     // put current dict data in an array
-//     let keys = Object.keys(radarData[currentYear][currentID]);
-//
-//     let array = [];
-//
-//     for (i = 1; i < keys.length; i++){
-//         array.push({"name": keys[i], "value": Number((radarData[currentYear][currentID][keys[i]]).replace(",", "."))})
-//     };
-//
-//     let dataValues = [];
-//     let dataArray = [array];
-//
-//     console.log(dataArray);
-//     console.log(array);
-//
-//     dataArray.forEach(function(y, x){
-//
-//         //set up nodes with correct coordinates
-//         g.selectAll(".nodes")
-//          .data(y, function(j, i){
-//             dataValues.push([
-//                cfg.w/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total)),
-//                cfg.h/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total))
-//              ]);
-//              console.log(dataValues);
-//         });
-//
-//         console.log(dataValues);
-//
-//          // // set up the area between the nodes
-//          g.selectAll(".area")
-//           .data([dataValues])
-//           .attr("points",function(d) {
-//             var str="";
-//             for (var pti=0;pti<d.length; pti++){
-//                 str=str+d[pti][0] + "," + d[pti][1] + " ";
-//             }
-//             return str;
-//           })
-         //  .on('mouseover', function (d){
-         //     console.log(d);
-         //     z = "polygon."+d3.select(this).attr("class");
-         //     g.selectAll("polygon")
-         //      .transition(200)
-         //      .style("fill-opacity", 0.1);
-         //     g.selectAll(z)
-         //      .transition(200)
-         //      .style("fill-opacity", .7);
-         //         })
-         //  .on('mouseout', function(){
-         //     g.selectAll("polygon")
-         //      .transition(200)
-         //      .style("fill-opacity", cfg.opacityArea);
-
-      // });
-    // });
-
-      // var tooltip = d3.select("body").select("div").attr("class", "toolTip");
-      //     array.forEach(function(y, x){
-      //
-      //       g.selectAll(".nodes")
-      //       .data([array]) // data is volledige array met objecten, klopt
-      //       .append("svg:circle")
-      //       .attr("class", "radar-chart-serie"+series)
-      //       .attr('r', cfg.radius)
-      //       .attr("alt", function(){
-      //         return Math.max(y.value, 0)})
-      //       .attr("cx", function(){
-      //         dataValues.push([
-      //         cfg.w/2*(1-(parseFloat(Math.max(y.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(x*cfg.radians/total)),
-      //         cfg.h/2*(1-(parseFloat(Math.max(y.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(x*cfg.radians/total))
-      //       ]);
-      //       return cfg.w/2*(1-(Math.max(y.value, 0)/cfg.maxValue)*cfg.factor*Math.sin(x*cfg.radians/total));
-      //       })
-      //       .attr("cy", function(){
-      //         return cfg.h/2*(1-(Math.max(y.value, 0)/cfg.maxValue)*cfg.factor*Math.cos(x*cfg.radians/total));
-      //       })
-      //       .attr("data-id", function(){return y.name})
-      //       .style("fill", "#fff")
-      //       .style("stroke-width", "2px")
-      //       .style("stroke", cfg.color(series)).style("fill-opacity", .9)
-      //       .on('mouseover', function (){
-      //         console.log(y.name)
-      //             tooltip
-      //               .style("left", d3.event.pageX - 40 + "px")
-      //               .style("top", d3.event.pageY - 80 + "px")
-      //               .style("display", "inline-block")
-      //       				.html((y.name) + "<br><span>" + d3.format(".2f")(y.value) + "%" + "</span>");
-      //             })
-      //     		.on("mouseout", function(d){ tooltip.style("display", "none");});
-      //     });
-//
-//     document.getElementById("titleRadar").innerHTML = "Emissions (%) per sector in " + currentCountry + ", " + currentYear;
-// };
+document.getElementById("titleRadar").innerHTML = "Emissions (%) per sector in <br>" + currentCountry + ", " + currentYear;
+};

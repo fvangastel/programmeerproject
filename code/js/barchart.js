@@ -55,10 +55,12 @@ function makeBar (barData) {
     var barTip = d3.tip()
         .attr("class", "d3-tip")
         .offset([-10, 0])
+        // .html((d.name) + "<br><span>" + d3.format(",.0f")(d.emission) + " (" + (d3.format(".2%")(d.emission/d3.sum(array.map(function(v){ return v.emission; })))) +  ")" + "</span>");
         .html(function(d) {
           console.log(d)
-          return (d3.format(".2%")(d.emission/d3.sum(array.map(function(v){ return v.emission; }))));
-          // return d3.format(".1f")(d.emission)+ " MtCO2e";
+          return (d.name) + "<br><span>" + d3.format(",.0f")(d.emission) + " (" + (d3.format(".2%")(d.emission/d3.sum(array.map(function(v){ return v.emission; })))) +  ")" + "</span>";
+          // return (d3.format(".2%")(d.emission/d3.sum(array.map(function(v){ return v.emission; }))));
+          // return d3.format(",.0f")(d.emission) + " (" + (d3.format(".2%")(d.emission/d3.sum(array.map(function(v){ return v.emission; })))) +  ")";
       });
 
     // Call tip
