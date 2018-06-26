@@ -13,11 +13,11 @@ body {
 }
 #chart {
 	position: absolute;
-	top: 50px;
+  top: 50px;
 	left: 100px;
 }
 
-  .toolTip {
+.toolTip {
   pointer-events: none;
 	position: absolute;
     display: none;
