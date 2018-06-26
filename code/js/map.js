@@ -65,16 +65,14 @@ function makeMap (mapData, emissionData) {
             .offset([-10, 0])
             .html(function(d) {
               if (d.properties.value == 0 || NaN) {
-                  return
-                      d.properties.name + "<br>" +
+                  return d.properties.name + "<br>" +
                       "<span>" + "No data" + "</span>";
               }
               else {
                   return d.properties.name + "<br>" +
                       "<span>" + d3.format(",")(d.properties.value) + "</span>";
-              }
-
-            })
+              };
+            });
 
     svgMap.call(mapTip);
 
@@ -94,18 +92,15 @@ function makeMap (mapData, emissionData) {
                 return color(d.properties.value);
             }
           })
-        .style('stroke', 'slategrey')
-        .style('stroke-width', 1.5)
-        // tooltips
-          .style("stroke","slategrey")
-          .style('stroke-width', 0.3)
-          .on('mouseover',function(d){
-            mapTip.show(d);
+        .style("stroke","slategrey")
+        .style('stroke-width', 0.3)
+        .on('mouseover',function(d){
+          mapTip.show(d);
 
     d3.select(this)
       .style("opacity", 0.8)
       .style("stroke","slategrey")
-      .style("stroke-width",3);
+      .style("stroke-width", 3);
   })
       .on('mouseout', function(d){
         mapTip.hide(d);
@@ -120,35 +115,8 @@ function makeMap (mapData, emissionData) {
         updateBar(barData, currentYear, currentID)
         makeRadar(radarData, currentYear, currentID)
       });
-
     makeSlider();
     makeLegend();
-
-};
-
-function makeSlider () {
-
-    // put in a slider to slide over the years
-    var slider = d3.sliderHorizontal()
-      .min(1990)
-      .max(2012)
-      .step(1)
-      .width(800)
-      .tickFormat(d3.format(""))
-      .on('onchange', val => {
-        currentYear = val;
-        updateMap(currentYear);
-        updateBar(barData, currentYear, currentID);
-        makeRadar(radarData, currentYear, currentID);
-      });
-
-    var g = d3.select("#sliderMap").append("svg")
-      .attr("width", 1000)
-      .attr("height", 75)
-      .append("g")
-      .attr("transform", "translate(50,20)");
-
-    g.call(slider);
 };
 
 function makeLegend () {
@@ -173,6 +141,7 @@ function makeLegend () {
     g.call(legend);
 };
 
+// function that updates the map
 function updateMap(currentYear, barData) {
 
     // iterate over the emission data per country and per year
@@ -192,6 +161,7 @@ function updateMap(currentYear, barData) {
                 if (dataID == mapID && year == currentYear) {
                     mapData.features[k].properties.value = emission;
 
+                    // color country grey if no data
                     d3.select("#" + mapID)
                         .style("fill", function(){
                             if (emission == 0 || NaN) {
@@ -203,19 +173,21 @@ function updateMap(currentYear, barData) {
                         })
                     break;
                 }
-            }
+             }
           }
         }
 
-        // update map colors
-        d3.select("#" + mapID)
-            .style("fill", function(){
-                if (emission == 0 || NaN) {
-                    return 'lightgray';
-                }
-                else {
-                    return color(emission);
-                }
-            })
+    // update map colors
+    d3.select("#" + mapID)
+      .style("fill", function(){
+          if (emission == 0 || NaN) {
+              return 'lightgray';
+          }
+          else {
+              return color(emission);
+          };
+      });
+
+    // update title map
     document.getElementById("titleMap").innerHTML = "Annual greenhouse gas emissions (ktCO2e) per country, " + currentYear;
 };
