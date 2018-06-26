@@ -16,7 +16,6 @@
 
 var totalYears = 43;
 var currentID = "WLD";
-var currentCountry = "World";
 
 var widthMap = 800
 var heightMap = 400
@@ -125,8 +124,6 @@ function makeMap (currentYear, mapData, emissionData) {
         currentCountry = d.properties.name;
         updateBar(barData, currentYear, currentID)
         updateRadar(radarData, currentYear, currentID)
-        document.getElementById("titleBar").innerHTML = "Emissions (MtCO2e) per gas in " + currentCountry + ", " + currentYear;
-        document.getElementById("titleRadar").innerHTML = "Emissions (%) per sector in " + currentCountry + ", " + currentYear;
       });
 
     makeSlider();
@@ -145,9 +142,6 @@ function makeSlider () {
       .tickFormat(d3.format(""))
       .on('onchange', val => {
         currentYear = val;
-        document.getElementById("titleMap").innerHTML = "Annual greenhouse gas emissions (ktCO2e) per country, " + String(val);
-        document.getElementById("titleBar").innerHTML = "Emissions (MtCO2e) per gas in " + currentCountry + ", " + String(val);
-        document.getElementById("titleRadar").innerHTML = "Emissions (%) per sector in " + currentCountry + ", " + String(val);
         updateMap(currentYear);
         updateBar(barData, currentYear, currentID);
         updateRadar(radarData, currentYear, currentID);
@@ -228,15 +222,5 @@ function updateMap(currentYear, barData) {
                     return color(emission);
                 }
             })
+    document.getElementById("titleMap").innerHTML = "Annual greenhouse gas emissions (ktCO2e) per country, " + String(val);
 };
-
-// function searchbar(){
-//
-//     $(".selectpicker").click(function(event) {
-//         $('.selectpicker').selectpicker();
-//         console.log("option clicked");
-//         console.log($('select[name=countrySelection]').val(1));
-//         console.log($('.selectpicker').selectpicker('refresh'));
-//     })
-
-// };

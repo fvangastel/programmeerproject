@@ -15,6 +15,7 @@ var emissionData;
 var barData;
 var radarData;
 var currentYear = 1990;
+var currentCountry = "World";
 var currentID;
 
 // load the 3 json files

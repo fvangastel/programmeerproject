@@ -128,4 +128,6 @@ function updateBar (barData, currentYear, currentID){
       .transition().duration(1000)
       .attr("y", function(d) { return y(d.emission); })
       .attr("height", function(d) { return heightBar - y(d.emission); });
+
+  document.getElementById("titleBar").innerHTML = "Emissions (MtCO2e) per gas in " + currentCountry + ", " + currentYear;
 };
