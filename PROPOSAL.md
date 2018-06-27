@@ -3,7 +3,7 @@
 ### [What impact has eating meat to our planet?](https://11096187.github.io/programmeerproject/index.html)
 #### A project by Felicia van Gastel
 
-A project that visualizes the impact of agriculture on the climate and environment.
+A project that visualizes the impact of the meat and dairy production on the climate and environment.
 
 ![picture.jpg](https://github.com/11096187/programmeerproject/blob/master/doc/picture.jpg)
 
