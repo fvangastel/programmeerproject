@@ -7,6 +7,8 @@
 *
 * programmeerproject
 * june 2018
+*
+* source: https://bl.ocks.org/d3noob/bdf28027e0ce70bd132edc64f1dd7ea4
 */
 
 // set the dimensions and margins of the graph
@@ -21,17 +23,16 @@ var x = d3.scaleBand()
 var y = d3.scaleLinear()
           .range([heightBar, 0]);
 
+// set up the axis
 var xAxis = d3.axisBottom(x);
 var yAxis = d3.axisLeft(y);
 
+// set svg of the bar as global variable
 var svgBar;
-var array;
 
 function makeBar (barData) {
 
-  // append the svg object to the body of the page
-  // append a 'group' element to 'svg'
-  // moves the 'group' element to the top left margin
+  // append svg object for the barchart
   svgBar = d3.select("#barchart").append("svg")
       .attr("width", widthBar + marginBar.left + marginBar.right)
       .attr("height", heightBar + marginBar.top + marginBar.bottom)
@@ -39,7 +40,7 @@ function makeBar (barData) {
       .attr("transform",
             "translate(" + marginBar.left + "," + marginBar.top + ")");
 
-    array = [];
+    var array = [];
 
     let keys = Object.keys(barData[1990].WLD);
 
@@ -47,7 +48,7 @@ function makeBar (barData) {
         array.push({"name": keys[i], "emission": Number((barData[1990].WLD[keys[i]]).replace(",", "."))})
     };
 
-    // Scale the range of the data in the domains
+    // scale the range of the data in the domains
     x.domain(array.map(function(d) { return d.name; }));
     y.domain([0, d3.max(array, function(d) { return d.emission; })]);
 
@@ -55,15 +56,11 @@ function makeBar (barData) {
     var barTip = d3.tip()
         .attr("class", "d3-tip")
         .offset([-10, 0])
-        // .html((d.name) + "<br><span>" + d3.format(",.0f")(d.emission) + " (" + (d3.format(".2%")(d.emission/d3.sum(array.map(function(v){ return v.emission; })))) +  ")" + "</span>");
         .html(function(d) {
-          console.log(d)
           return (d.name) + "<br><span>" + d3.format(",.0f")(d.emission) + " (" + (d3.format(".2%")(d.emission/d3.sum(array.map(function(v){ return v.emission; })))) +  ")" + "</span>";
-          // return (d3.format(".2%")(d.emission/d3.sum(array.map(function(v){ return v.emission; }))));
-          // return d3.format(",.0f")(d.emission) + " (" + (d3.format(".2%")(d.emission/d3.sum(array.map(function(v){ return v.emission; })))) +  ")";
       });
 
-    // Call tip
+    // call tip
     svgBar.call(barTip);
 
     // append the rectangles for the bar chart
@@ -102,34 +99,69 @@ function makeBar (barData) {
     svgBar.append("g")
         .attr("class", "yAxis")
         .call(yAxis);
-
-  // });
 };
 
 function updateBar (barData, currentYear, currentID){
 
-  array = [];
+    // update bar if data is available
+    try {
 
-  let keys = Object.keys(barData[currentYear][currentID]);
+        // set up an empty array
+        var array = [];
 
-  for (i = 1; i < keys.length; i++){
-      array.push({"name": keys[i], "emission": Number((barData[currentYear][currentID][keys[i]]).replace(",", "."))})
-  };
+        // get keys of current country
+        let keys = Object.keys(barData[currentYear][currentID]);
 
-  y.domain([0, d3.max(array, function(d) { return d.emission; })]);
+        // put data of current country in an array
+        for (i = 1; i < keys.length; i++){
+            array.push({"name": keys[i], "emission": Number((barData[currentYear][currentID][keys[i]]).replace(",", "."))})
 
-  d3.select(".yAxis")
-    .transition()
-    .duration(1000)
-    .call(yAxis)
+        // remove possible text
+        svgBar.select("text.noData").remove();
 
-  var bars = svgBar.selectAll(".bar")
-      .data(array)
+        // set right opacity
+        svgBar.selectAll(".bar")
+          .style("opacity", 1)
 
-  bars
-      .transition().duration(1000)
-      .attr("y", function(d) { return y(d.emission); })
-      .attr("height", function(d) { return heightBar - y(d.emission); });
+        // update y axis
+        y.domain([0, d3.max(array, function(d) { return d.emission; })]);
 
+        d3.select(".yAxis")
+          .transition()
+          .duration(1000)
+          .call(yAxis)
+
+        // use new data to update bars
+        var bars = svgBar.selectAll(".bar")
+            .data(array)
+
+        bars
+            .transition().duration(1000)
+            .attr("y", function(d) { return y(d.emission); })
+            .attr("height", function(d) { return heightBar - y(d.emission); });
+    };
+
+    // show text if data is not available
+    } catch (e) {
+
+        // remove possible text
+        svgBar.select("text.noData").remove();
+        svgBar.selectAll(".bar")
+          .style("opacity", 1)
+
+        // add text
+        svgBar.append("text")
+         .attr("class", "noData")
+         .text("No data available")
+         .style("font-size", "25px")
+         .attr("y", 100)
+         .attr("x", 25);
+
+        // set up new opacity
+        svgBar.selectAll(".bar")
+          .style("opacity", 0.5)
+    };
+
+  // change title
   document.getElementById("titleBar").innerHTML = "Emissions (MtCO2e) per gas in <br>" + currentCountry + ", " + currentYear;
 };
