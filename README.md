@@ -15,8 +15,6 @@ The target audience for this problem are people who are willing to minimize thei
 ### Solution
 This project will visualize the impact of meat and diary production on our climate.
 
-#### Visual sketch
-![Sketch.png](https://github.com/11096187/programmeerproject/blob/master/doc/Sketch.png)
 
 #### Main features
 - A **world map** with color gradients showing the amount of greenhouse gases per country. The map will contain **two buttons** with which you can choose to see the total CO2 emission of a country, the total of greenhouse gases or the CO2 emission per capita. With a **slider** you can change the year of the data. When you **click** on a country on a map, the corresponding data of the country will be shown in the multiline chart and the zoomable sunburst. Without clicking, data about the world as a whole will be shown.
