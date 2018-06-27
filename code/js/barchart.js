@@ -153,9 +153,9 @@ function updateBar (barData, currentYear, currentID){
         svgBar.append("text")
          .attr("class", "noData")
          .text("No data available")
-         .style("font-size", "25px")
+         .style("font-size", "20px")
          .attr("y", 100)
-         .attr("x", 25);
+         .attr("x", 30);
 
         // set up new opacity
         svgBar.selectAll(".bar")

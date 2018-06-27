@@ -35,3 +35,8 @@
 	font-weight: 500;
   color: #081F2C;
 }
+
+#selectCountry {
+    font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+}

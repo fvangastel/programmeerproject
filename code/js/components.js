@@ -5,7 +5,7 @@ function select() {
         currentID = $option.val();
         currentCountry = $option.text();
         updateBar(barData, currentYear, currentID);
-        makeRadar(radarData, currentYear, currentID);
+        updateRadar(radarData, currentYear, currentID);
 })};
 
 function makeSlider () {
@@ -21,7 +21,7 @@ function makeSlider () {
         currentYear = val;
         updateMap(currentYear);
         updateBar(barData, currentYear, currentID);
-        makeRadar(radarData, currentYear, currentID);
+        updateRadar(radarData, currentYear, currentID);
       });
 
     var g = d3.select("#sliderMap").append("svg")

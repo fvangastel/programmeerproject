@@ -113,7 +113,7 @@ function makeMap (mapData, emissionData) {
         currentID = d.id;
         currentCountry = d.properties.name;
         updateBar(barData, currentYear, currentID)
-        makeRadar(radarData, currentYear, currentID)
+        updateRadar(radarData, currentYear, currentID)
       });
     makeSlider();
     makeLegend();
