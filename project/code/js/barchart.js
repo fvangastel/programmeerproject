@@ -3,7 +3,7 @@
 * 11096187
 *
 * barchart.js
-* script for barchart using json datafile.
+* script for barchart using json datafile
 *
 * programmeerproject
 * june 2018
@@ -58,7 +58,7 @@ function makeBar (barData) {
         .offset([-10, 0])
         .html(function(d) {
           return (d.name) + "<br><span>" + d3.format(",.0f")(d.emission) + " (" + (d3.format(".2%")(d.emission/d3.sum(array.map(function(v){ return v.emission; })))) +  ")" + "</span>";
-      });
+        });
 
     // call tip
     svgBar.call(barTip);
@@ -99,7 +99,7 @@ function makeBar (barData) {
     svgBar.append("g")
         .attr("class", "yAxis")
         .call(yAxis);
-};
+}
 
 function updateBar (barData, currentYear, currentID){
 
@@ -115,6 +115,8 @@ function updateBar (barData, currentYear, currentID){
         // put data of current country in an array
         for (i = 1; i < keys.length; i++){
             array.push({"name": keys[i], "emission": Number((barData[currentYear][currentID][keys[i]]).replace(",", "."))})
+
+        };
 
         // remove possible text
         svgBar.select("text.noData").remove();
@@ -139,7 +141,7 @@ function updateBar (barData, currentYear, currentID){
             .transition().duration(1000)
             .attr("y", function(d) { return y(d.emission); })
             .attr("height", function(d) { return heightBar - y(d.emission); });
-    };
+
 
     // show text if data is not available
     } catch (e) {
@@ -160,8 +162,8 @@ function updateBar (barData, currentYear, currentID){
         // set up new opacity
         svgBar.selectAll(".bar")
           .style("opacity", 0.5)
-    };
+    }
 
-  // change title
-  document.getElementById("titleBar").innerHTML = "Emissions (MtCO2e) per gas in <br>" + currentCountry + ", " + currentYear;
-};
+    // change title
+    document.getElementById("titleBar").innerHTML = "Emissions (MtCO2e) per gas in <br>" + currentCountry + ", " + currentYear;
+}

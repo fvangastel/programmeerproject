@@ -6,7 +6,7 @@ function select() {
         currentCountry = $option.text();
         updateBar(barData, currentYear, currentID);
         updateRadar(radarData, currentYear, currentID);
-})};
+})}
 
 function makeSlider () {
 
@@ -18,10 +18,10 @@ function makeSlider () {
       .width(800)
       .tickFormat(d3.format(""))
       .on('onchange', val => {
-        currentYear = val;
-        updateMap(currentYear);
-        updateBar(barData, currentYear, currentID);
-        updateRadar(radarData, currentYear, currentID);
+          currentYear = val;
+          updateMap(currentYear);
+          updateBar(barData, currentYear, currentID);
+          updateRadar(radarData, currentYear, currentID);
       });
 
     var g = d3.select("#sliderMap").append("svg")
@@ -31,4 +31,4 @@ function makeSlider () {
       .attr("transform", "translate(50,20)");
 
     g.call(slider);
-};
+}

@@ -64,14 +64,14 @@ function makeMap (mapData, emissionData) {
             .attr('class', 'd3-tip')
             .offset([-10, 0])
             .html(function(d) {
-              if (d.properties.value == 0 || NaN) {
-                  return d.properties.name + "<br>" +
-                      "<span>" + "No data" + "</span>";
-              }
-              else {
-                  return d.properties.name + "<br>" +
-                      "<span>" + d3.format(",")(d.properties.value) + "</span>";
-              };
+                if (d.properties.value == 0 || NaN) {
+                    return d.properties.name + "<br>" +
+                        "<span>" + "No data" + "</span>";
+                }
+                else {
+                    return d.properties.name + "<br>" +
+                        "<span>" + d3.format(",")(d.properties.value) + "</span>";
+                };
             });
 
     svgMap.call(mapTip);
@@ -116,7 +116,7 @@ function makeMap (mapData, emissionData) {
         });
       makeSlider();
       makeLegend();
-};
+}
 
 function makeLegend () {
     var threshold = d3.scaleThreshold()
@@ -138,7 +138,7 @@ function makeLegend () {
       .scale(threshold);
 
     g.call(legend);
-};
+}
 
 // function that updates the map
 function updateMap(currentYear, barData) {
@@ -189,4 +189,4 @@ function updateMap(currentYear, barData) {
 
     // update title map
     document.getElementById("titleMap").innerHTML = "Annual greenhouse gas emissions (ktCO2e) per country, " + currentYear;
-};
+}
