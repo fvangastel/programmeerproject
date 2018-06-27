@@ -1,6 +1,6 @@
 # Programmeerproject
 
-### [What impact has eating meat to our planet?](https://11096187.github.io/programmeerproject/index.html)
+### [What are we eating?](https://11096187.github.io/programmeerproject/index.html)
 #### A project by Felicia van Gastel
 
 A project that visualizes the impact of agriculture on the climate and environment.
