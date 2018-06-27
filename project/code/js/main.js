@@ -21,10 +21,10 @@ var currentID = "WLD";
 // load the 3 json files
 window.onload = function() {
     d3.queue()
-        .defer(d3.json, "data/world_countries.json")
-        .defer(d3.json, "data/emissions-totals.json")
-        .defer(d3.json, "data/emissions-by-gas.json")
-        .defer(d3.json, "data/emissions-by-sector-percentages.json")
+        .defer(d3.json, "project/data/world_countries.json")
+        .defer(d3.json, "project/data/emissions-totals.json")
+        .defer(d3.json, "project/data/emissions-by-gas.json")
+        .defer(d3.json, "project/data/emissions-by-sector-percentages.json")
         .awaitAll(function(error, data){getData(error, data)});
 };
 
