@@ -17,7 +17,7 @@ var allAxis;
 var total;
 var radius;
 
-// set up configutation for the radar chart
+// set up standard values for the radar chart in a configuration (cfg)
 var cfg = {
     radius: 5,
     w: 200,
@@ -39,10 +39,10 @@ var cfg = {
 function makeRadar (radarData, currentYear, currentID) {
 
     // set up empty array
-    let array = [];
+    var array = [];
 
     // put current dict data in an array
-    let keys = Object.keys(radarData[currentYear][currentID]);
+    var keys = Object.keys(radarData[currentYear][currentID]);
     for (i = 1; i < keys.length; i++){
         array.push({"name": keys[i], "value": Number((radarData[currentYear][currentID][keys[i]]).replace(",", "."))})
     };
@@ -64,8 +64,8 @@ function makeRadar (radarData, currentYear, currentID) {
 
     // create circular segments
     for (var j = 0; j < cfg.levels; j++){
-         var levelFactor = cfg.factor*radius*((j+1)/cfg.levels);
-         svgRadar.selectAll(".levels")
+        var levelFactor = cfg.factor*radius*((j+1)/cfg.levels);
+        svgRadar.selectAll(".levels")
           .data(allAxis)
           .enter()
           .append("svg:line")
@@ -84,16 +84,16 @@ function makeRadar (radarData, currentYear, currentID) {
     for (var j = 0; j < cfg.levels; j++){
         var levelFactor = cfg.factor*radius*((j+1)/cfg.levels);
         svgRadar.selectAll(".levels")
-         .data([1]) //dummy data
-         .enter()
-         .append("svg:text")
-         .attr("x", function(d){return levelFactor*(1-cfg.factor*Math.sin(0));})
-         .attr("y", function(d){return levelFactor*(1-cfg.factor*Math.cos(0));})
-         .attr("class", "legend")
-         .style("font-size", "10px")
-         .attr("transform", "translate(" + (cfg.w/2-levelFactor + cfg.ToRight) + ", " + (cfg.h/2-levelFactor) + ")")
-         .attr("fill", "#737373")
-         .text((j+1)*100/cfg.levels + "%");
+          .data([1]) //dummy data
+          .enter()
+          .append("svg:text")
+          .attr("x", function(d){return levelFactor*(1-cfg.factor*Math.sin(0));})
+          .attr("y", function(d){return levelFactor*(1-cfg.factor*Math.cos(0));})
+          .attr("class", "legend")
+          .style("font-size", "10px")
+          .attr("transform", "translate(" + (cfg.w/2-levelFactor + cfg.ToRight) + ", " + (cfg.h/2-levelFactor) + ")")
+          .attr("fill", "#737373")
+          .text((j+1)*100/cfg.levels + "%");
     }
 
     series = 0;
@@ -125,8 +125,8 @@ function makeRadar (radarData, currentYear, currentID) {
       .attr("x", function(d, i){return cfg.w/2*(1-cfg.factorLegend*Math.sin(i*cfg.radians/total))-60*Math.sin(i*cfg.radians/total);})
       .attr("y", function(d, i){return cfg.h/2*(1-Math.cos(i*cfg.radians/total))-20*Math.cos(i*cfg.radians/total);});
 
-    let dataValues = [];
-    let dataArray = [array];
+    var dataValues = [];
+    var dataArray = [array];
 
     dataArray.forEach(function(y, x){
 
@@ -148,28 +148,28 @@ function makeRadar (radarData, currentYear, currentID) {
           .style("stroke-width", "2px")
           .style("stroke", cfg.color(series))
           .attr("points",function(d) {
-            var str="";
-            for (var pti=0;pti<d.length; pti++){
-                str=str+d[pti][0] + "," + d[pti][1] + " ";
-            }
-            return str;
+              var string="";
+              // set up the data points for polygon
+              for (var points = 0; points < d.length; points++){
+                  string = string + d[points][0] + "," + d[points][1] + " ";
+              }
+              return string;
           })
           .style("fill", function(){return cfg.color(series)})
           .style("fill-opacity", cfg.opacityArea)
           .on('mouseover', function (d){
-             console.log(d);
-             z = "polygon."+d3.select(this).attr("class");
+             polygon = "polygon."+d3.select(this).attr("class");
              svgRadar.selectAll("polygon")
-              .transition(200)
-              .style("fill-opacity", 0.1);
-             svgRadar.selectAll(z)
-              .transition(200)
-              .style("fill-opacity", .7);
+                .transition(200)
+                .style("fill-opacity", 0.1);
+             svgRadar.selectAll(polygon)
+                .transition(200)
+                .style("fill-opacity", .7);
                  })
           .on('mouseout', function(){
              svgRadar.selectAll("polygon")
-              .transition(200)
-              .style("fill-opacity", cfg.opacityArea);
+                .transition(200)
+                .style("fill-opacity", cfg.opacityArea);
           });
       });
 
@@ -179,35 +179,34 @@ function makeRadar (radarData, currentYear, currentID) {
    array.forEach(function(y, x){
 
      svgRadar.selectAll(".nodes")
-       .data([array]).enter()
-       .append("svg:circle")
-       .attr("class", "radar-chart-serie"+series)
-       .attr('r', cfg.radius)
-       .attr("alt", function(){
-         return Math.max(y.value, 0)})
-       .attr("cx", function(){
-         dataValues.push([
-         cfg.w/2*(1-(parseFloat(Math.max(y.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(x*cfg.radians/total)),
-         cfg.h/2*(1-(parseFloat(Math.max(y.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(x*cfg.radians/total))
-       ]);
-       return cfg.w/2*(1-(Math.max(y.value, 0)/cfg.maxValue)*cfg.factor*Math.sin(x*cfg.radians/total));
-       })
-       .attr("cy", function(){
-         return cfg.h/2*(1-(Math.max(y.value, 0)/cfg.maxValue)*cfg.factor*Math.cos(x*cfg.radians/total));
-       })
-       .attr("data-id", function(){return y.name})
-       .style("fill", "#fff")
-       .style("stroke-width", "2px")
-       .style("stroke", cfg.color(series)).style("fill-opacity", .9)
-       .on('mouseover', function (){
-         console.log(y.name)
-             tooltip
+        .data([array]).enter()
+        .append("svg:circle")
+        .attr("class", "radar-chart-serie"+series)
+        .attr('r', cfg.radius)
+        .attr("alt", function(){
+            return Math.max(y.value, 0)})
+        .attr("cx", function(){
+        dataValues.push([
+            cfg.w/2*(1-(parseFloat(Math.max(y.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(x*cfg.radians/total)),
+            cfg.h/2*(1-(parseFloat(Math.max(y.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(x*cfg.radians/total))
+        ]);
+            return cfg.w/2*(1-(Math.max(y.value, 0)/cfg.maxValue)*cfg.factor*Math.sin(x*cfg.radians/total));
+        })
+        .attr("cy", function(){
+            return cfg.h/2*(1-(Math.max(y.value, 0)/cfg.maxValue)*cfg.factor*Math.cos(x*cfg.radians/total));
+        })
+        .attr("data-id", function(){return y.name})
+        .style("fill", "#fff")
+        .style("stroke-width", "2px")
+        .style("stroke", cfg.color(series)).style("fill-opacity", .9)
+        .on('mouseover', function (){
+            tooltip
                .style("left", d3.event.pageX - 40 + "px")
                .style("top", d3.event.pageY - 80 + "px")
                .style("display", "inline-block")
-       				.html((y.name) + "<br><span>" + d3.format(".2f")(y.value) + "%" + "</span>");
-             })
-     	 .on("mouseout", function(d){ tooltip.style("display", "none");});
+          		 .html((y.name) + "<br><span>" + d3.format(".2f")(y.value) + "%" + "</span>");
+           })
+        .on("mouseout", function(d){ tooltip.style("display", "none");});
    });
 };
 
@@ -220,17 +219,17 @@ function updateRadar(radarData, currentYear, currentID){
         svgRadar.select("text.noData").remove();
 
         // set up empty array
-        let array = [];
+        var array = [];
 
         // put current dict data in an array
-        let keys = Object.keys(radarData[currentYear][currentID]);
+        var keys = Object.keys(radarData[currentYear][currentID]);
         for (i = 1; i < keys.length; i++){
             array.push({"name": keys[i], "value": Number((radarData[currentYear][currentID][keys[i]]).replace(",", "."))})
         };
 
 
-        let dataValues = [];
-        let dataArray = [array];
+        var dataValues = [];
+        var dataArray = [array];
 
         // initialize tooltip
         var tooltip = d3.select("body").append("div").attr("class", "toolTip");
@@ -255,25 +254,26 @@ function updateRadar(radarData, currentYear, currentID){
               .data([dataValues])
               .enter()
               .append("polygon")
-              .attr("class", "radar-chart-serie"+series)
+              .attr("class", "radar-chart-serie" + series)
               .style("stroke-width", "2px")
               .style("stroke", cfg.color(series))
               .attr("points",function(d) {
-                var str="";
-                for (var pti=0;pti<d.length; pti++){
-                    str=str+d[pti][0] + "," + d[pti][1] + " ";
+                var string="";
+                // set up the points for polygon
+                for (var points = 0; points < d.length; points++){
+                    string = string + d[points][0] + "," + d[points][1] + " ";
                 }
-                return str;
+                return string;
               })
               .style("fill", function(){return cfg.color(series)})
               .style("fill-opacity", cfg.opacityArea)
               .on('mouseover', function (d){
                  console.log(d);
-                 z = "polygon."+d3.select(this).attr("class");
+                 polygon = "polygon."+d3.select(this).attr("class");
                  svgRadar.selectAll("polygon")
                   .transition(200)
                   .style("fill-opacity", 0.1);
-                 svgRadar.selectAll(z)
+                 svgRadar.selectAll(polygon)
                   .transition(200)
                   .style("fill-opacity", .7);
                      })
@@ -292,7 +292,7 @@ function updateRadar(radarData, currentYear, currentID){
          svgRadar.selectAll(".nodes")
              .data([array]).enter()
              .append("svg:circle")
-             .attr("class", "radar-chart-serie"+series)
+             .attr("class", "radar-chart-serie" + series)
              .attr('r', cfg.radius)
              .attr("alt", function(){
                return Math.max(y.value, 0)})

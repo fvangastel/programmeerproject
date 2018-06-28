@@ -10,7 +10,7 @@ function select() {
 
 function makeSlider () {
 
-    // put in a slider to slide over the years
+    // make a slider to slide over the years
     var slider = d3.sliderHorizontal()
       .min(1990)
       .max(2012)
@@ -24,6 +24,7 @@ function makeSlider () {
           updateRadar(radarData, currentYear, currentID);
       });
 
+    // put slider in svg
     var g = d3.select("#sliderMap").append("svg")
       .attr("width", 1000)
       .attr("height", 75)

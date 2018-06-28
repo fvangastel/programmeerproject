@@ -75,46 +75,47 @@ function makeMap (mapData, emissionData) {
 
     svgMap.call(mapTip);
 
+    // adds countries to map
     svgMap.append("g")
-        .attr("class", "countries")
+      .attr("class", "countries")
       .selectAll("path")
-        .data(mapData.features)
+      .data(mapData.features)
       .enter().append("path")
-        .attr("d", path)
-        .attr("id", function(d){
-            return d.id})
-        .style("fill", function(d){
-            if (d.properties.value == 0 || NaN) {
-                return "lightgray";
-            }
-            else {
-                return color(d.properties.value);
-            }
-        })
-        .style("stroke","slategrey")
-        .style('stroke-width', 0.3)
-        .on('mouseover',function(d){
-          mapTip.show(d);
-          d3.select(this)
-            .style("opacity", 0.8)
-            .style("stroke","slategrey")
-            .style("stroke-width", 3);
-        })
-        .on('mouseout', function(d){
-          mapTip.hide(d);
-          d3.select(this)
-            .style("opacity", 1.0)
-            .style("stroke","slategrey")
-            .style("stroke-width",0.3);
-        })
-        .on('click', function(d){
-          currentID = d.id;
-          currentCountry = d.properties.name;
-          updateBar(barData, currentYear, currentID)
-          updateRadar(radarData, currentYear, currentID)
-        });
-      makeSlider();
-      makeLegend();
+      .attr("d", path)
+      .attr("id", function(d){
+          return d.id})
+      .style("fill", function(d){
+          if (d.properties.value == 0 || NaN) {
+              return "lightgray";
+          }
+          else {
+              return color(d.properties.value);
+          }
+      })
+      .style("stroke","slategrey")
+      .style('stroke-width', 0.3)
+      .on('mouseover',function(d){
+        mapTip.show(d);
+        d3.select(this)
+          .style("opacity", 0.8)
+          .style("stroke","slategrey")
+          .style("stroke-width", 3);
+      })
+      .on('mouseout', function(d){
+        mapTip.hide(d);
+        d3.select(this)
+          .style("opacity", 1.0)
+          .style("stroke","slategrey")
+          .style("stroke-width",0.3);
+      })
+      .on('click', function(d){
+        currentID = d.id;
+        currentCountry = d.properties.name;
+        updateBar(barData, currentYear, currentID)
+        updateRadar(radarData, currentYear, currentID)
+      });
+    makeSlider();
+    makeLegend();
 }
 
 function makeLegend () {
