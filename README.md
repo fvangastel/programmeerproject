@@ -1,7 +1,7 @@
 # Programmeerproject
 
 ### [Green or not?](https://11096187.github.io/programmeerproject/index.html)
-#### A project by Felicia van Gastel (11096187)
+#### Felicia van Gastel (11096187)
 
 A project containing data visualizations about the sources of greenhouse gases.
 
