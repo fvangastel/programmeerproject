@@ -43,5 +43,5 @@ During the project I realized that several plans I've made weren't really feasib
 4. Struggling with data and time, I had to change my problem statement from a specific focus on agriculture, to a more general way containing all sources of greenhouse gases.
 
 ## Ideal world
-
+If I would have more time, I would focus more on the agricultural, especially livestock part of the greenhouse gases. Since I wanted to tell a story about the impact of livestock on the climate, there must have been more data about these issues. This could mean that I must have done some more visualizations to show these effects, also in contrast with other agricultural aspects. Next to that, I could have made some more functionalities on my website, like for example information buttons above the visualizations containing more information about the data itself.
 
