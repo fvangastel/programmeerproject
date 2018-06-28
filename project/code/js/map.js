@@ -47,7 +47,6 @@ function makeMap (mapData, emissionData) {
                 if (dataID == mapID && year == currentYear) {
                     mapData.features[k].properties.value = emission;
                     mapData.features[k].properties.color = color(emission);
-                    break;
                 }
             }
         }
@@ -71,7 +70,7 @@ function makeMap (mapData, emissionData) {
                 else {
                     return d.properties.name + "<br>" +
                         "<span>" + d3.format(",")(d.properties.value) + "</span>";
-                };
+                }
             });
 
     svgMap.call(mapTip);
@@ -91,7 +90,7 @@ function makeMap (mapData, emissionData) {
             else {
                 return color(d.properties.value);
             }
-          })
+        })
         .style("stroke","slategrey")
         .style('stroke-width', 0.3)
         .on('mouseover',function(d){
@@ -162,15 +161,14 @@ function updateMap(currentYear, barData) {
 
                     // color country grey if no data
                     d3.select("#" + mapID)
-                        .style("fill", function(){
-                            if (emission == 0 || NaN) {
-                                return 'lightgray';
-                            }
-                            else {
-                                return color(emission);
-                            }
-                        })
-                    break;
+                      .style("fill", function(){
+                          if (emission == 0 || NaN) {
+                              return 'lightgray';
+                          }
+                          else {
+                              return color(emission);
+                          }
+                      });
                 }
              }
           }
@@ -184,7 +182,7 @@ function updateMap(currentYear, barData) {
           }
           else {
               return color(emission);
-          };
+          }
       });
 
     // update title map
