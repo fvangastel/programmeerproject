@@ -8,7 +8,7 @@ This project contains visualizations that will show the greenhouse gas emissions
 ## Technical design
 ### Overview
 The project map consists of:
-- A bootstrap map that contains scripts, css and images for the theme of the website.
+- A bootstrap map that contains scripts, css and images for the [Grayscale](https://startbootstrap.com/template-overviews/grayscale/) theme of the website.
 - A code map consisting of css and javascript files needed for the visualizations.
 - A data map containing all the data used.
 
