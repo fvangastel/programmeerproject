@@ -1,9 +1,9 @@
 # Programmeerproject
 
-### [What are we eating?](https://11096187.github.io/programmeerproject/index.html)
+### [Green or not?](https://11096187.github.io/programmeerproject/index.html)
 #### A project by Felicia van Gastel
 
-A project that visualizes the impact of agriculture on the climate and environment.
+A project containing data visualizations about the sources of greenhouse gases.
 
 ![intro-bg.jpg](https://github.com/11096187/programmeerproject/blob/master/docs/intro-bg.jpg)
 

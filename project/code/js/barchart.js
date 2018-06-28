@@ -34,11 +34,11 @@ function makeBar (barData) {
 
   // append svg object for the barchart
   svgBar = d3.select("#barchart").append("svg")
-      .attr("width", widthBar + marginBar.left + marginBar.right)
-      .attr("height", heightBar + marginBar.top + marginBar.bottom)
+    .attr("width", widthBar + marginBar.left + marginBar.right)
+    .attr("height", heightBar + marginBar.top + marginBar.bottom)
     .append("g")
-      .attr("transform",
-            "translate(" + marginBar.left + "," + marginBar.top + ")");
+    .attr("transform",
+        "translate(" + marginBar.left + "," + marginBar.top + ")");
 
     var array = [];
 
@@ -65,40 +65,40 @@ function makeBar (barData) {
 
     // append the rectangles for the bar chart
     svgBar.selectAll(".bar")
-        .data(array)
+      .data(array)
       .enter().append("rect")
-        .attr("class", "bar")
-        .attr("x", function(d) { return x(d.name); })
-        .attr("width", x.bandwidth())
-        .attr("y", function(d) { return y(d.emission); })
-        .attr("height", function(d) { return heightBar - y(d.emission); })
-        .on('mouseover', barTip.show) // interactivity of the bars
-        .on('mouseout', barTip.hide)
-        .attr("fill", function(d){
-            if (d.name == "CO2"){
-                return "#40004b"
-            };
-            if (d.name == "CH4"){
-                return "#1b7837";
-            };
-            if (d.name == "N2O"){
-                return "#4575b4"
-            };
-            if (d.name == "F-GAS"){
-                return "#fec44f"
-            };
-        });
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d.name); })
+      .attr("width", x.bandwidth())
+      .attr("y", function(d) { return y(d.emission); })
+      .attr("height", function(d) { return heightBar - y(d.emission); })
+      .on('mouseover', barTip.show) // interactivity of the bars
+      .on('mouseout', barTip.hide)
+      .attr("fill", function(d){
+          if (d.name == "CO2"){
+              return "#40004b"
+          };
+          if (d.name == "CH4"){
+              return "#1b7837";
+          };
+          if (d.name == "N2O"){
+              return "#4575b4"
+          };
+          if (d.name == "F-GAS"){
+              return "#fec44f"
+          };
+      });
 
     // add the x Axis
     svgBar.append("g")
-    	  .attr("class", "xAxis")
-        .attr("transform", "translate(0," + heightBar + ")")
-        .call(xAxis);
+  	  .attr("class", "xAxis")
+      .attr("transform", "translate(0," + heightBar + ")")
+      .call(xAxis);
 
     // add the y Axis
     svgBar.append("g")
-        .attr("class", "yAxis")
-        .call(yAxis);
+      .attr("class", "yAxis")
+      .call(yAxis);
 }
 
 function updateBar (barData, currentYear, currentID){
@@ -135,12 +135,12 @@ function updateBar (barData, currentYear, currentID){
 
         // use new data to update bars
         var bars = svgBar.selectAll(".bar")
-            .data(array)
+          .data(array)
 
         bars
-            .transition().duration(1000)
-            .attr("y", function(d) { return y(d.emission); })
-            .attr("height", function(d) { return heightBar - y(d.emission); });
+          .transition().duration(1000)
+          .attr("y", function(d) { return y(d.emission); })
+          .attr("height", function(d) { return heightBar - y(d.emission); });
 
 
     // show text if data is not available

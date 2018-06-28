@@ -132,12 +132,12 @@ function makeRadar (radarData, currentYear, currentID) {
 
         //set up nodes with correct coordinates
         svgRadar.selectAll(".nodes")
-         .data(y, function(j, i){
-            dataValues.push([
-               cfg.w/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total)),
-               cfg.h/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total))
-             ]);
-         });
+          .data(y, function(j, i){
+              dataValues.push([
+                  cfg.w/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total)),
+                  cfg.h/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total))
+                  ]);
+          });
 
          // set up the area between the nodes
          svgRadar.selectAll(".area")
@@ -171,7 +171,7 @@ function makeRadar (radarData, currentYear, currentID) {
                 .transition(200)
                 .style("fill-opacity", cfg.opacityArea);
           });
-      });
+      })
 
     //initialize tooltip
    var tooltip = d3.select("body").append("div").attr("class", "toolTip");
@@ -207,8 +207,8 @@ function makeRadar (radarData, currentYear, currentID) {
           		 .html((y.name) + "<br><span>" + d3.format(".2f")(y.value) + "%" + "</span>");
            })
         .on("mouseout", function(d){ tooltip.style("display", "none");});
-   });
-};
+   })
+}
 
 function updateRadar(radarData, currentYear, currentID){
 
@@ -271,16 +271,16 @@ function updateRadar(radarData, currentYear, currentID){
                  console.log(d);
                  polygon = "polygon."+d3.select(this).attr("class");
                  svgRadar.selectAll("polygon")
-                  .transition(200)
-                  .style("fill-opacity", 0.1);
+                    .transition(200)
+                    .style("fill-opacity", 0.1);
                  svgRadar.selectAll(polygon)
-                  .transition(200)
-                  .style("fill-opacity", .7);
+                    .transition(200)
+                    .style("fill-opacity", .7);
                      })
               .on('mouseout', function(){
                  svgRadar.selectAll("polygon")
-                  .transition(200)
-                  .style("fill-opacity", cfg.opacityArea);
+                    .transition(200)
+                    .style("fill-opacity", cfg.opacityArea);
                 });
               });
 
@@ -295,16 +295,16 @@ function updateRadar(radarData, currentYear, currentID){
              .attr("class", "radar-chart-serie" + series)
              .attr('r', cfg.radius)
              .attr("alt", function(){
-               return Math.max(y.value, 0)})
+                return Math.max(y.value, 0)})
              .attr("cx", function(){
-               dataValues.push([
-               cfg.w/2*(1-(parseFloat(Math.max(y.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(x*cfg.radians/total)),
-               cfg.h/2*(1-(parseFloat(Math.max(y.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(x*cfg.radians/total))
-               ]);
-               return cfg.w/2*(1-(Math.max(y.value, 0)/cfg.maxValue)*cfg.factor*Math.sin(x*cfg.radians/total));
+                 dataValues.push([
+                     cfg.w/2*(1-(parseFloat(Math.max(y.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(x*cfg.radians/total)),
+                     cfg.h/2*(1-(parseFloat(Math.max(y.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(x*cfg.radians/total))
+                 ]);
+                 return cfg.w/2*(1-(Math.max(y.value, 0)/cfg.maxValue)*cfg.factor*Math.sin(x*cfg.radians/total));
              })
              .attr("cy", function(){
-               return cfg.h/2*(1-(Math.max(y.value, 0)/cfg.maxValue)*cfg.factor*Math.cos(x*cfg.radians/total));
+                return cfg.h/2*(1-(Math.max(y.value, 0)/cfg.maxValue)*cfg.factor*Math.cos(x*cfg.radians/total));
              })
              .attr("data-id", function(){return y.name})
              .style("fill", "#fff")
@@ -332,13 +332,13 @@ function updateRadar(radarData, currentYear, currentID){
 
         // add text
         svgRadar.append("text")
-           .attr("class", "noData")
-           .text("No data available")
-           .style("font-size", "20px")
-           .attr("y", 100)
-           .attr("x", 25);
+          .attr("class", "noData")
+          .text("No data available")
+          .style("font-size", "20px")
+          .attr("y", 100)
+          .attr("x", 25);
     };
 
     // update title
     document.getElementById("titleRadar").innerHTML = "Emissions (%) per sector in <br>" + currentCountry + ", " + currentYear;
-};
+}
