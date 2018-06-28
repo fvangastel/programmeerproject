@@ -12,29 +12,36 @@ CO2 is a gas that mostly arises from the production of energy. Methane is, after
 
 ### Website features
 #### Introduction
+
 ![1-Start.png](https://github.com/11096187/programmeerproject/blob/master/docs/1-Start.png)
 
 #### About
-After entering the intro page, you will get some information about the purpose and functions of the project.
+After entering the introduction page, you will get some information about the purpose and functions of the project.
+
 ![2-About.png](https://github.com/11096187/programmeerproject/blob/master/docs/2-About.png)
 
-#### The map
-By hovering over the map, you can see the total emissions per country.
-By clicking on the map, the barchart and radarchart will show you
-in that order emissions per gas and per sector for the selected country.
+#### Visualizations
+The  visualizations will first show the greenhouse gas emissions in the world, divided by country, sector and gas type.
+The **map** shows the greenhouse gas emissions per country with color gradients. By *hovering* over the map, you can see the name of the country and its exact data. By *clicking* on the map, the bar chart and radar chart will update with the data of the selected country.
+
 ![4-mapHover.png](https://github.com/11096187/programmeerproject/blob/master/docs/4-mapHover.png)
 
-#### The bar chart
+The **bar chart** shows the greenhouse gas per type of gas (CO2, CH4, N2O and F-GAS), of the world or selected country. By *hovering* over the bar, you will see the exact data and its percentage of the total gases.
 
-#### The radar chart
+![5-barHover.png](https://github.com/11096187/programmeerproject/blob/master/docs/5-barHover.png)
 
+The **radar chart** shows the greenhouse gas per sector (Energy, Bunker fuels, Waste, Agriculture and Industry). By *hovering* over the radar, you will see the exact percentage for the selected sector.
 
-- A **world map** with color gradients showing the amount of greenhouse gases per country. The map will contain **two buttons** with which you can choose to see the total CO2 emission of a country, the total of greenhouse gases or the CO2 emission per capita. With a **slider** you can change the year of the data. When you **click** on a country on a map, the corresponding data of the country will be shown in the multiline chart and the zoomable sunburst. Without clicking, data about the world as a whole will be shown.
-- A **multiline chart** shows information about for example CO2 emissions and production of meat and crops over the years.
-- A **sunburst** shows from on what contents the CO2 emission is based.
+![6-radarHover.png](https://github.com/11096187/programmeerproject/blob/master/docs/6-radarHover.png)
 
-### Prerequisites
+#### Interactive components
+With the **select bar** you can select the country you want to visualize in the linked bar and radar chart. With the **slider** you can select the year you want to see the data from.
+
+![7-select.png](https://github.com/11096187/programmeerproject/blob/master/docs/7-select.png)
+![8-slider.png](https://github.com/11096187/programmeerproject/blob/master/docs/8-slider.png)
+
 #### Data sources
-- [Total greenhouse gases emissions per country](https://data.worldbank.org/indicator/EN.ATM.GHGT.KT.CE)
+On the last section you can click on the links to the data sources.
+![9-datasources.png](https://github.com/11096187/programmeerproject/blob/master/docs/9-datasources.png)
 
 #### Copyright
