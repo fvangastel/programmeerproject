@@ -1,7 +1,7 @@
 # Programmeerproject
 
 ### [Green or not?](https://11096187.github.io/programmeerproject/index.html)
-#### A project by Felicia van Gastel (11096187)
+#### Felicia van Gastel (11096187)
 
 A project containing data visualizations about the sources of greenhouse gases.
 
@@ -38,10 +38,35 @@ The **radar chart** shows the greenhouse gas per sector (Energy, Bunker fuels, W
 With the **select bar** you can select the country you want to visualize in the linked bar and radar chart. With the **slider** you can select the year you want to see the data from.
 
 ![7-select.png](https://github.com/11096187/programmeerproject/blob/master/docs/7-select.png)
-![8-slider.png](https://github.com/11096187/programmeerproject/blob/master/docs/8-slider.png)
 
 #### Data sources
-On the last section you can click on the links to the data sources.
+On the last section you can click on the buttons to be redirected to the data sources.
 ![9-datasources.png](https://github.com/11096187/programmeerproject/blob/master/docs/9-datasources.png)
 
-#### Copyright
+### Sources
+- 
+
+### Copyright
+
+#### Green or not?
+MIT License
+
+Copyright (c) 2018 Felicia van Gastel
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
