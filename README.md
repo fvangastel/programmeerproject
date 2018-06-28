@@ -5,7 +5,7 @@
 
 A project containing data visualizations about the sources of greenhouse gases.
 
-![intro-bg.jpg](https://github.com/11096187/programmeerproject/blob/master/docs/intro-bg.jpg)
+![1-Start.png](https://github.com/11096187/programmeerproject/blob/master/docs/1-Start.png)
 
 ### Problem statement
 While focussing in the recent years on fossil fuels as a major cause of climate change, we forgotten that our agriculture also has a (very) big influence on our climate. Besides from using the bike more often instead of the car, is there something else we as individuals can do to minimize our impact on the climate? And what changes in our lives will have more impact than others?
