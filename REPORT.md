@@ -12,12 +12,12 @@ The project map consists of:
 - A *code* map consisting of css and javascript files needed for the visualizations.
 - A *data* map containing all the data used.
 
-### Detail code map
+### Detail 
 #### js
 In the *js map* you can find the all the javascript files needed for de visualizations.
-- **main.js** is a file that loads the data and functions to make the visualizations, the slider and the select bar. 
+- **main.js** is a file that loads the data and calls the functions to make the map, bar chart, radar chart, the slider and the select bar. 
 - **barchart.js**, **map.js** and **radar.js** are the files that contain the functions to make and update the visualizations and their titles.
-- **components.js** contains the two functions that make the slider and select bar used by the visualizations.
+- **components.js** contains the two functions that make the slider and select bar used by the visualizations to select the country and slide to a specific year.
 
 #### css
 The *css map* contains the css files used to add style to all visualizations.
