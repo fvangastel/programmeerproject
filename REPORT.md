@@ -27,8 +27,21 @@ The *css map* contains the css files used to add style to all visualizations.
 ## Challenges
 During the project I realized that several plans I've made weren't really feasible in the short amount of time. Because of the fact that I've spent a lot of time searching for the data that would explain what I wanted to tell, some visualizations or functionalities that I had in mind were just too complex for the time being. In making decisions about what you want to implement, you have to choose whether spending a lot of time on one specific thing is worth it, since you have to think about meeting all requirements. 
 
-I've changed the following things during the project:
-1. 
+### Changes
+1. Radar and bar chart instead of sunburst and multiline chart
+2. Data
+3. Select button to change country in the radar and bar chart, instead of buttons to change data in map
+4. Problem statement
+
+### Argumentation
+1. I chose to reject the sunburst, because I've spent much time searching for the data I wanted to show. Since this is a complex visualization that needs a complex json file, this would take too much time meaning I would not be able to make a third visualization. For this, I decided to make a simple bar chart and focus on the last visualization. Since I already implemented a slider for the years, I thought it would be nicer to add a third visualization that would change with the years. Since the multiline chart already contains all the years, I chose to make a radar chart that only contains data for 1 year. The other advantage of this chart is that it shows the relative percentage per sector. Taken up all the advantages and disadvantages of all these charts, I chose to make these changes. 
+
+2. First I wanted to show the CO2 emissions per country, but then during the project I've read that actually the most important gas that the agriculture produces is methane. Since this gas has a big impact on the climate, I wanted to show data of all the greenhouse gases together instead of focusing just on CO2. This way I would not filter out the effect of agriculture on the climate.
+
+3. I intended to make two or more buttons to switch the data of the map (for example 'total CO2 per country' and 'CO2 per capita'), but since I switched the data from CO2 to greenhouse gases, I couln't find a dataset about the greenhouse gas per capita. This meant I had to find another option, so I chose to make a select button to select the country. This could be handy if you want to see data about a certain country, but don't know where on the map it is. Or if you just want to see an overview of all the countries listed.
+
+4. Struggling with data and time, I had to change my problem statement from a specific focus on agriculture, to a more general way containing all sources of greenhouse gases.
 
 ## Ideal world
+
 
