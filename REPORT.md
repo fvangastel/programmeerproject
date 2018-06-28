@@ -12,7 +12,7 @@ The project map consists of:
 - A *code* map consisting of css and javascript files needed for the visualizations.
 - A *data* map containing all the data used.
 
-### Detail
+### Detail code map
 #### js
 In the *js map* you can find the all the javascript files needed for de visualizations.
 - **main.js** is a file that loads the data and functions to make the visualizations, the slider and the select bar. 
