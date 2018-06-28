@@ -36,6 +36,9 @@ var cfg = {
     color: d3.scaleOrdinal().range(["#b2182b", "#CA0D59"])
 };
 
+/*
+* Function that makes the radar chart
+*/
 function makeRadar (radarData, currentYear, currentID) {
 
     // set up empty array
@@ -210,6 +213,9 @@ function makeRadar (radarData, currentYear, currentID) {
    })
 }
 
+/*
+* Function that updates the radar chart with corresponding data
+*/
 function updateRadar(radarData, currentYear, currentID){
 
     // check if data available

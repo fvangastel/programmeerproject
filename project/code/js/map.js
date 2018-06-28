@@ -29,6 +29,9 @@ var projection = d3.geoMercator()
 
 var path = d3.geoPath().projection(projection);
 
+/*
+* Function that makes the map and matches corresponding data
+*/
 function makeMap (mapData, emissionData) {
 
     // iterate over the data file and separate into name and population value
@@ -52,6 +55,7 @@ function makeMap (mapData, emissionData) {
         }
     }
 
+    // makes an svg for the map
     var svgMap = d3.select("#visualMap")
                 .append("svg")
                 .attr("width", widthMap)
@@ -59,6 +63,7 @@ function makeMap (mapData, emissionData) {
                 .append('g')
                 .attr('class', 'map');
 
+    // makes tooltip for map
     var mapTip = d3.tip()
             .attr('class', 'd3-tip')
             .offset([-10, 0])
@@ -114,10 +119,12 @@ function makeMap (mapData, emissionData) {
           updateBar(barData, currentYear, currentID)
           updateRadar(radarData, currentYear, currentID)
       });
-    makeSlider();
     makeLegend();
 }
 
+/*
+* Function that makes the legend
+*/
 function makeLegend () {
     var threshold = d3.scaleThreshold()
       .domain([50, 100, 250, 500, 1000, 2500, 5000,
@@ -140,7 +147,9 @@ function makeLegend () {
     g.call(legend);
 }
 
-// function that updates the map
+/*
+* Function that updates the map with corresponding data
+*/
 function updateMap(currentYear, barData) {
 
     // iterate over the emission data per country and per year

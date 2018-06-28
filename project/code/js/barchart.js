@@ -30,6 +30,9 @@ var yAxis = d3.axisLeft(y);
 // set svg of the bar as global variable
 var svgBar;
 
+/*
+* Function that makes the bar chart
+*/
 function makeBar (barData) {
 
   // append svg object for the barchart
@@ -101,6 +104,9 @@ function makeBar (barData) {
       .call(yAxis);
 }
 
+/*
+* Function that updates the bar chart with the selected data
+*/
 function updateBar (barData, currentYear, currentID){
 
     // update bar if data is available

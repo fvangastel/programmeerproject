@@ -18,7 +18,9 @@ var currentYear = "1990";
 var currentCountry = "World";
 var currentID = "WLD";
 
-// load the 3 json files
+/*
+* Loads the data files
+*/
 window.onload = function() {
     d3.queue()
       .defer(d3.json, "project/data/world_countries.json")
@@ -28,7 +30,9 @@ window.onload = function() {
       .awaitAll(function(error, data){getData(error, data)});
 }
 
-// stores the collected data in the global variables
+/*
+* Stores the collected data in the global variables
+*/
 function getData(error, data) {
     if (error) throw error;
 
@@ -42,5 +46,6 @@ function getData(error, data) {
     makeMap(mapData, emissionData);
     makeBar(barData);
     makeRadar(radarData, currentYear, currentID);
+    makeSlider();
     select();
 }

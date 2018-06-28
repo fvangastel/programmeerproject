@@ -1,9 +1,11 @@
 body {
   background-color: #F1F3F3
 }
+
 .axis {
 	font: 15px sans-serif;
 }
+
 .axis path,
 .axis line {
   fill: none;
@@ -11,6 +13,7 @@ body {
   stroke-width: 2px;
   shape-rendering: crispEdges;
 }
+
 #chart {
 	position: absolute;
   top: 50px;
@@ -31,6 +34,7 @@ body {
   color: #5B6770;
   box-shadow: 0px 3px 9px rgba(0, 0, 0, .15);
 }
+
 .toolTip:after {
   content: "";
   width: 0;
@@ -43,6 +47,7 @@ body {
   left: 50%;
   margin-left: -12px;
 }
+
 .toolTip span {
 	font-weight: 500;
   color: #081F2C;

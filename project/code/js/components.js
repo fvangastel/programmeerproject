@@ -1,3 +1,19 @@
+/*
+* Felicia van Gastel
+* 11096187
+*
+* components.js
+* script containing functions for the select bar and slider
+*
+* programmeerproject
+* june 2018
+*
+* source: https://bl.ocks.org/d3noob/bdf28027e0ce70bd132edc64f1dd7ea4
+*/
+
+/*
+* Updates the visualizations with selected country
+*/
 function select() {
 
     $("#selectCountry").change(function(){
@@ -8,6 +24,9 @@ function select() {
         updateRadar(radarData, currentYear, currentID);
 })}
 
+/*
+* Updates the visualizations with selected year
+*/
 function makeSlider () {
 
     // make a slider to slide over the years
