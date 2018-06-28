@@ -19,7 +19,7 @@ var currentCountry = "World";
 var currentID = "WLD";
 
 /*
-* Loads the data files
+* Function that loads the data files
 */
 window.onload = function() {
     d3.queue()
@@ -31,7 +31,7 @@ window.onload = function() {
 }
 
 /*
-* Stores the collected data in the global variables
+* Function that stores the collected data in the global variables
 */
 function getData(error, data) {
     if (error) throw error;
