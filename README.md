@@ -44,7 +44,8 @@ On the last section you can click on the buttons to be redirected to the data so
 ![9-datasources.png](https://github.com/11096187/programmeerproject/blob/master/docs/9-datasources.png)
 
 ### Sources
-- 
+- Photo by [Stijn te Strake](https://unsplash.com/@stijntestrake) on [Unsplash](https://unsplash.com/)
+- Style by [Bootstrap](https://startbootstrap.com/template-overviews/grayscale/)
 
 ### Copyright
 
