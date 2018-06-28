@@ -42,3 +42,7 @@ Van het weekend heb ik mijn radar chart aan de praat gekregen, alleen zitten er 
 Het is gisteren gelukt mijn select bar te laten werken, en al mijn visualisaties hierop te laten updaten! In principe werkt nu dus alles. Radar chart werkt wel met een nieuwe maak functie ipv update functie, denk dat die update functie toch net iets te ingewikkeld voor me wordt. Ben allang blij dat alles nu werkt ;). Nu verder met het oplossen van alle overige bugs en evt paar mooie style dingen toevoegen. Zo heb ik de bug in mijn legenda gefixt, en zit er als het goed is geen bug meer in mijn navbar. Ook heb ik mijn tooltips wat mooier gemaakt, en ben ik mijn code en repository aan het opschonen.
 
 # Dag 15 - woensdag 27 juni
+Vandaag heb ik toch een beetje een update functie gemaakt voor mijn radar chart, om de code wat mooier te maken. Verder ook nog kleine bug fixes en code cleaning.
+
+# Dag 16 - donderdag 28 juni
+Finishing touch! Code review gedaan, review en report gemaakt en laatste kleine aanpassingen.
