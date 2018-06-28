@@ -19,7 +19,7 @@ In the code map you can find the all the js and css files needed for de visualiz
 
 **barchart.js**, **map.js** and **radar.js** are the files that contain the functions to make and update the visualizations and their titles.
 
-**components.js** contains the two functions (*makeSlider();* and *select();*) that make and call the slider and select bar used by the visualizations.
+**components.js** contains the two functions that make the slider and select bar used by the visualizations.
 
 ### Challenges
 
