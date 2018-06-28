@@ -41,7 +41,7 @@ With the **select bar** you can select the country you want to visualize in the 
 ![8-slider.png](https://github.com/11096187/programmeerproject/blob/master/docs/8-slider.png)
 
 #### Data sources
-On the last section are links to the data sources.
+On the last section you can click on the links to the data sources.
 ![9-datasources.png](https://github.com/11096187/programmeerproject/blob/master/docs/9-datasources.png)
 
 #### Copyright
