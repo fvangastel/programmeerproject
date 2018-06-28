@@ -38,7 +38,6 @@ The **radar chart** shows the greenhouse gas per sector (Energy, Bunker fuels, W
 With the **select bar** you can select the country you want to visualize in the linked bar and radar chart. With the **slider** you can select the year you want to see the data from.
 
 ![7-select.png](https://github.com/11096187/programmeerproject/blob/master/docs/7-select.png)
-![8-slider.png](https://github.com/11096187/programmeerproject/blob/master/docs/8-slider.png)
 
 #### Data sources
 On the last section you can click on the links to the data sources.
